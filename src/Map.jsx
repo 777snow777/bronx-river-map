@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as maplibregl  from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
-import './map.css';
+import './Map.css';
 import Papa from "papaparse";
 
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
