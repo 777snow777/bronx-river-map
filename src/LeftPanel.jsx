@@ -1,46 +1,22 @@
-import "./leftpanel.css";
-import React, { useState, useCallback, useEffect } from 'react';
-import ToggleLayer from "./ToggleLayer";
+import React, {useEffect, useState } from 'react';
+import "./panelcontainer.css";
+import RSAPlantExplorer from './RSAPlantExplorer';
+import DataLayers from "./DataLayers";
 
-export default function LeftPanel({map, layers}) {
-    const [width, setWidth] = useState(400); 
-    const [isResizing, setIsResizing] = useState(false);
-
-    const startResizing = useCallback(() => {
-        setIsResizing(true);
-    }, []);
-    const stopResizing = useCallback(() => {
-        setIsResizing(false);
-    }, []);
-    const resize = useCallback(
-        (ev) => {
-          if (isResizing) {
-            const newWidth = ev.clientX;
-            if (newWidth >= 50 && newWidth <= 800) { // Min and Max width constraints
-              setWidth(newWidth);
-            }
-          }
-        },
-        [isResizing]
-      );
-      useEffect(() => {
-        if (isResizing) {
-          window.addEventListener('mousemove', resize);
-          window.addEventListener('mouseup', stopResizing);
+export default function LeftPanel({leftPanelState, map, plantProfiles}) {
+    function selectPanelView(state){
+        switch (state) {
+            case 'explorer': 
+                return (<RSAPlantExplorer map={map} plantProfiles={plantProfiles}/>)
+            case "data-layers":
+                return (<DataLayers map={mapInstance} layers={layers}/>)
+            default:
+                return (<RSAPlantExplorer map={map} plantProfiles={plantProfiles}/>)
         }
-        return () => {
-          window.removeEventListener('mousemove', resize);
-          window.removeEventListener('mouseup', stopResizing);
-        };
-      }, [isResizing, resize, stopResizing]);
-    
-      return (
-        <div className="left-panel" style={{ width: `${width}px` }}>
-            <div className="panel-content">
-              <h2>Data Layers</h2>
-              <ToggleLayer map={map} layers={layers}/>
-            </div>
-            <div className="resizer" onMouseDown={startResizing}></div>
+    }
+    return (
+        <div className='left-panel'>   
+            {selectPanelView(leftPanelState)}
         </div>
-      ); 
+    ) 
 }

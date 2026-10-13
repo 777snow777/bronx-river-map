@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import PlantProfile from './PlantProfile';
 import './panelcontainer.css';
 import Papa from "papaparse";
+import FeaturePlant from "./FeaturePlant"
+import PlantProfile from './PlantProfile';
+let plantsFn = "featured_inat_plants.csv" 
 
-let plantsFn = "featured_inat_plants.csv"
-let obsFn = "featured_inat_plants(all obs).csv"
-
-export default function BottomPanel({map, layers}){
+export default function BottomPanel({map, layers, plantProfiles}){
     const [parsedObsData, setParsedObsData] = useState([]);
     const [parsedPlantData, setParsedPlantData] = useState([]);
+    // const [selectedPlant, setSelectedPlant] = useState("Prunus Serotina")
 
     useEffect(()=>{
         Papa.parse(plantsFn, {
@@ -17,22 +17,11 @@ export default function BottomPanel({map, layers}){
             header: true,        
             complete: function (results) {
                 if (parsedPlantData.length == 0){
+                    //NEED TO UPDATE TO USE PLANT PROFILES WHICH WILL CONTAIN IMAGES, SELECT RANDOM INDICES 
                     const shuffled = [...results.data].sort(() => 0.5 - Math.random()).slice(0,7);
-                    let plantsList = shuffled.map(row=>row['scientific'])
-                    setParsedPlantData(plantsList)
+                    // let plantsList = shuffled.map(row=>row['common'])
+                    setParsedPlantData(shuffled)
                 }
-                Papa.parse(obsFn, {
-                    download: true,
-                    delimiter: ",",
-                    header: true,        
-                    complete: function (results) {
-                        const featuredObs = results.data.filter((row)=> parsedPlantData.includes(row.scientific) )
-                        setParsedObsData(featuredObs)
-                    },
-                    error: function (error) {
-                      console.error("Error parsing CSV:", error);
-                    }
-                  })
             },
             error: function (error) {
               console.error("Error parsing CSV:", error);
@@ -42,10 +31,10 @@ export default function BottomPanel({map, layers}){
     }, [parsedPlantData])
     return(
         <div className="bottom">
-            <h2>Featured Plants</h2>
+            <h2>Common Watershed Plants</h2>
                 <div className="plant-features">
                     {parsedPlantData.map((plant, index) => (
-                        <PlantProfile key={index} plantObsData={parsedObsData.filter((row)=> row.scientific==plant)} map={map}/>
+                        <FeaturePlant key={index} images={plant["images"]} plantData={plantProfiles[plant.scientific]} map={map}/>
                     ))}
             </div>
            

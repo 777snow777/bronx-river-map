@@ -8,16 +8,27 @@ import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 maplibregl.setWorkerUrl(workerUrl);
 
 let lpiFn = "lpi_observations.csv"
-let rsaFn = "RSA_StemData_processed.csv"
+let rsaFn = "rsa_site_summaries.csv"
 
-
-export default function MapComponent({setMap, setRightPanelOpen, setRightPanelData}) {
+export default function MapComponent({setMap, setRightPanelState, setSiteData}) {
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const lng = -73.8803;
+    const hoveredIdRef = useRef(null);
+    const selectedIdRef = useRef(null);
+
+    const lng = -73.8603;
     const lat = 40.8517;
     const zoom = 12;
-    const API_KEY = 'DrPBTalyPfijs88s2rGB';
+
+    function getMostCommonPlants(plantListStr){
+      if (plantListStr == ""){
+        return null
+    }
+      let common = plantListStr.split(",")
+      let len = Math.min(common.length, 5)
+      return common.slice(0,len)
+      
+    }
 
     function getObsForSite(siteData){
       if (siteData.type =="lpi"){
@@ -28,8 +39,9 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
           complete: function (results) {
               let siteObs = results.data.filter((obs)=> obs["Wetland Site ID"] == siteData.wetland_si)
               siteData.plantObs = siteObs
-              setRightPanelData(siteData)
-              setRightPanelOpen(true)
+              siteData.siteId = siteData.wetland_si
+              setSiteData(siteData)
+              setRightPanelState("lpi")
           }
         })
       }else{
@@ -39,22 +51,27 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
           header: true,        
           complete: function (results) {
               //first 12 digits indicates site id
-              let rsaData = results.data.filter((data)=> data["SurveyID4"].slice(0,12) == siteData.SITE_ID)
-              if (rsaData.length !=0 ){
-                siteData.siteData = rsaData[0]
-                setRightPanelData(siteData)
-                setRightPanelOpen(true)
+              let sitePlants = results.data.filter((data)=> data.SurveyID4.slice(0,12) == siteData.SITE_ID)[0]
+              siteData.Overall = sitePlants.Overall_Summary.split(",")
+              siteData.Midstory = sitePlants.Midstory_Summary.split(",")
+              siteData.Seedling = sitePlants.Seedling_Summary.split(",")
+              siteData.Overstory1 = sitePlants.Overstory_1_Summary.split(",")
+              siteData.Overstory2 = sitePlants.Overstory_2_Summary.split(",")
+              siteData.Overstory3 = sitePlants.Overstory_3_Summary.split(",")
+              siteData.Overstory4 = sitePlants.Overstory_4_Summary.split(",")
+              siteData.CanopyProfile = sitePlants.CanopyProfile.split(",")
+              setSiteData(siteData)
+              setRightPanelState("rsa")
               }
-              
-          }
         })
      }
     }
+
     useEffect(() => {
         if (map.current) return; 
         map.current = new maplibregl.Map({
           container: mapContainer.current,
-          style: `https://api.maptiler.com/maps/streets-v4/style.json?key=${API_KEY}`,
+          style: "https://tiles.versatiles.org/assets/styles/colorful/style.json",
           center: [lng, lat],
           zoom: zoom
         });
@@ -73,8 +90,8 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
               'type': 'fill',
               'source': 'watershed-city-limits',
               paint: {
-                  'fill-color': '#A080ff',
-                  'fill-opacity': 0.15
+                  'fill-color': '#0000AA',
+                  'fill-opacity': 0.05
               }
             });
             map.current.addSource('nyc-parks-wetlands-src', {
@@ -88,17 +105,17 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
                 'source': 'nyc-parks-wetlands-src',
                 paint: {
                     'fill-color':  ['match',
-                    ['get', 'classname'], // The feature property to evaluate
-                    'Emergent', '#c7fff9',   // If category === 'parks', use green
-                    'Estuarine', '#d1e2f3',   // If category === 'water', use blue
-                    'Forested', '#9ac8e0',   // If category === 'urban', use red
+                    ['get', 'classname'], 
+                    'Emergent', '#c7fff9',   
+                    'Estuarine', '#d1e2f3',   
+                    'Forested', '#9ac8e0',   
                     'Scrub/Shrub', '#529dcc',
                     'Water', '#1d6cb1',
                     'Water-Estuarine', '#08306b',
                     '#999999'             // Default fallback color if no match
                   ],
                     'fill-opacity': 1,
-                    'fill-outline-color': '#000000' 
+                    'fill-outline-color': '#FF0000' 
 
                 }
             });
@@ -112,9 +129,25 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
               'type': 'fill',
               'source': 'rsa-sites-src',
               paint: {
-                  'fill-color':  '#FC00CA',
-                  'fill-opacity': 1,
-                  'fill-outline-color': '#FFFFFF' 
+                  'fill-color':  [
+                    'case',
+                      ['any',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        ['boolean', ['feature-state', 'selected'], false]
+                      ],
+                      '#777777',
+                      '#FFFFFF'
+                  ],
+                  'fill-opacity':  [
+                    'case',
+                      ['any',
+                        ['boolean', ['feature-state', 'hover'], false],
+                        ['boolean', ['feature-state', 'selected'], false]
+                      ],
+                      0.7,
+                      1
+                  ],
+                  'fill-outline-color': '#000000' 
               }
             });
             map.current.addSource('survey-points', {
@@ -127,10 +160,14 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
               'source': 'survey-points',
               paint: {
                 'circle-radius': 4,
-                'circle-color': '#A0F0C2',
+                'circle-color': '#000000',
                 'circle-stroke-width': 1,
                 'circle-stroke-color': '#000000'
-            }
+              }
+            });
+            map.current.addSource('inat-obs', {
+                    'type': 'geojson',
+                    'data': 'inat_obs.geojson'
             });
             map.current.on('click', 'lpi-sites', (e) => {
               const properties = e.features[0].properties
@@ -141,20 +178,77 @@ export default function MapComponent({setMap, setRightPanelOpen, setRightPanelDa
               const properties = e.features[0].properties
               properties.type ="rsa"
               getObsForSite(properties)
+              map.current.flyTo({
+                center: e.lngLat,
+                zoom: 16, 
+                essential: true 
+              });
+              const currentId = e.features[0].id;
+              console.log(selectedIdRef.current)
+              console.log(currentId)
+
+              if (selectedIdRef.current !== currentId) {
+                  map.current.setFeatureState(
+                    { source: 'rsa-sites-src', id: selectedIdRef.current},
+                    { selected: false }
+                  );
+                  selectedIdRef.current = currentId
+                  map.current.setFeatureState(
+                    { source: 'rsa-sites-src', id: currentId},
+                    { selected: true}
+                  );
+                
+              }
             });
             map.current.on('click', (e)=>{
-              setRightPanelOpen(false)
-              setRightPanelData(null)
+              setRightPanelState("closed")
+              if (selectedIdRef.current !== null) {
+                map.current.setFeatureState(
+                  { source: 'rsa-sites-src', id: selectedIdRef.current },
+                  { selected: false }
+                );
+              }
+              setSiteData(null)
             })
-          
-        })
-        
-      }, [API_KEY, lng, lat, zoom, setMap]);
+            // map.current.on('mouseenter', 'rsa-sites', (e) => {
+            //   let site = e.features[0].properties
+            //   properties.type ="rsa"
+            // });
+            map.current.on('mousemove', 'rsa-sites', (e) => {
+              if (e.features.length > 0) {
+                const currentId = e.features[0].id;
+                if (hoveredIdRef.current !== currentId) {
+                  
+                  if (hoveredIdRef.current !== null) {
+                    map.current.setFeatureState(
+                      { source: 'rsa-sites-src', id: hoveredIdRef.current },
+                      { hover: false }
+                    );
+                  }
+                  hoveredIdRef.current = currentId;
+                  map.current.setFeatureState(
+                    { source: 'rsa-sites-src', id: currentId },
+                    { hover: true }
+                  );
+                }
+              }  
+           })
+           map.current.on('mouseleave', 'rsa-sites', () => {
+            if (hoveredIdRef.current !== null) {
+              map.current.setFeatureState(
+                { source: 'rsa-sites-src', id: hoveredIdRef.current },
+                { hover: false }
+              );
+            }
+            hoveredIdRef.current = null;
+          });
+      })
+    }, [lng, lat, zoom, setMap]);
      
 
       return (
         <div className="map-wrap">
-          <div ref={mapContainer} className="map" />
+          <div ref={mapContainer} className="map" style={{pointerEvents: 'auto', position: 'relative', zIndex: 1}} />
         </div>
       );
   }
