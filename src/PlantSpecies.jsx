@@ -42,15 +42,6 @@ export default function PlantSpecies({map, plantData, visibilityDict, setVisibil
                 'circle-color', plantData.color);
         }
     }
-
-    // useEffect(()=> {
-    //     const img = new Image();
-    //     img.onload = () => {
-    //       setImagpeReady(true)
-    //     }
-    //     img.src = plantData.image; 
-      
-    // })
     return(
             // {/* {imageReady && <img src={plantData.image}/>} */}
         <div className = "plant-ctrl" onMouseEnter={highlightRange} onMouseLeave={removeHighlight}>

@@ -30,7 +30,6 @@ export default function INatPlantExplorer({map}){
             header: true,        
             complete: function (results) {
                 let inatPlants = results.data.filter((row)=>row.layer_type!="rsa")
-                console.log(inatPlants)
                 let plantData = []
                 inatPlants.forEach((row, index) =>{
                     row.images = row.images.split(',')

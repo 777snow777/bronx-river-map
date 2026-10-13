@@ -5,12 +5,13 @@ import './Map.css';
 import Papa from "papaparse";
 
 import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+import RightPanel from './RightPanel';
 maplibregl.setWorkerUrl(workerUrl);
 
 let lpiFn = "lpi_observations.csv"
 let rsaFn = "rsa_site_summaries.csv"
 
-export default function MapComponent({setMap, setRightPanelState, setSiteData}) {
+export default function MapComponent({setMap, setRightPanelState, setSiteData, rightPanelState}) {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const hoveredIdRef = useRef(null);
@@ -174,6 +175,24 @@ export default function MapComponent({setMap, setRightPanelState, setSiteData}) 
               properties.type ="lpi"
               getObsForSite(properties)
             });
+
+            map.current.on('click', (e)=>{
+              const features = map.current.queryRenderedFeatures(e.point, {
+                layers: ['rsa-sites'] //exclude clicks on rsa sites
+              });
+            
+              if (features.length === 0) {
+                setRightPanelState("closed")
+                if (selectedIdRef.current !== null) {
+                  map.current.setFeatureState(
+                    { source: 'rsa-sites-src', id: selectedIdRef.current},
+                    { selected: false }
+                  );
+                }
+                setSiteData(null)
+              }
+            })
+
             map.current.on('click', 'rsa-sites', (e) => {
               const properties = e.features[0].properties
               properties.type ="rsa"
@@ -184,44 +203,28 @@ export default function MapComponent({setMap, setRightPanelState, setSiteData}) 
                 essential: true 
               });
               const currentId = e.features[0].id;
-              console.log(selectedIdRef.current)
-              console.log(currentId)
-
               if (selectedIdRef.current !== currentId) {
+                if (selectedIdRef.current !== null){
                   map.current.setFeatureState(
                     { source: 'rsa-sites-src', id: selectedIdRef.current},
                     { selected: false }
                   );
-                  selectedIdRef.current = currentId
-                  map.current.setFeatureState(
-                    { source: 'rsa-sites-src', id: currentId},
-                    { selected: true}
-                  );
+                }
+                selectedIdRef.current = currentId
+                map.current.setFeatureState(
+                  { source: 'rsa-sites-src', id: currentId},
+                  { selected: true}
+                );
                 
               }
             });
-            map.current.on('click', (e)=>{
-              setRightPanelState("closed")
-              if (selectedIdRef.current !== null) {
-                map.current.setFeatureState(
-                  { source: 'rsa-sites-src', id: selectedIdRef.current },
-                  { selected: false }
-                );
-              }
-              setSiteData(null)
-            })
-            // map.current.on('mouseenter', 'rsa-sites', (e) => {
-            //   let site = e.features[0].properties
-            //   properties.type ="rsa"
-            // });
             map.current.on('mousemove', 'rsa-sites', (e) => {
               if (e.features.length > 0) {
                 const currentId = e.features[0].id;
                 if (hoveredIdRef.current !== currentId) {
-                  
                   if (hoveredIdRef.current !== null) {
                     map.current.setFeatureState(
-                      { source: 'rsa-sites-src', id: hoveredIdRef.current },
+                      { source: 'rsa-sites-src', id: hoveredIdRef.current},
                       { hover: false }
                     );
                   }
@@ -233,6 +236,7 @@ export default function MapComponent({setMap, setRightPanelState, setSiteData}) 
                 }
               }  
            })
+          
            map.current.on('mouseleave', 'rsa-sites', () => {
             if (hoveredIdRef.current !== null) {
               map.current.setFeatureState(

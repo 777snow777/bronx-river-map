@@ -52,7 +52,7 @@ export default function PanelContainer({layers}) {
             </div>           
             {mapInstance && plantProfiles && (leftPanelState != "closed") && <LeftPanel leftPanelState={leftPanelState} map={mapInstance} plantProfiles={plantProfiles}/>}
             {mapInstance && plantProfiles && (rightPanelState != "closed") && <RightPanel rightPanelState={rightPanelState} siteData={siteData} map={mapInstance} plantProfiles={plantProfiles}/>}
-            <MapComponent setMap={setMapInstance} setSiteData={setSiteData} setRightPanelState={setRightPanelState}/>
+            <MapComponent setMap={setMapInstance} setSiteData={setSiteData} setRightPanelState={setRightPanelState} rightPanelState={rightPanelState}/>
             {/* {mapInstance && plantProfiles && <BottomPanel map={mapInstance} layers={layers} plantProfiles={plantProfiles}/>} */}
         </div>
     ) 

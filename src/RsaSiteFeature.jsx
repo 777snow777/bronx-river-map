@@ -63,7 +63,7 @@ export default function RsaSiteFeature({siteData, plantProfiles, map}) {
     useEffect(()=>{
         generateCanopyChart(setCanopyProfile, siteData.CanopyProfile)
         getSiteSpecies()
-    }, [])
+    }, [siteData])
 
     return (
         <>

@@ -54,8 +54,9 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
                     ['linear'],
                     matchExpression, 
                     0, 0.0, 
-                    5, 0.3,  
-                    30, 0.7,
+                    10, 0.3,  
+                    30, 0.6,
+                    80, 0.9,
                     100, 1
                     ],
                     'fill-outline-color': '#000000',
@@ -99,7 +100,6 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
     };
 
     useEffect(()=>{
-        
         if (!map) return;
         if (!map.getLayer(plantData.layerId)){
             Papa.parse(rsaFn, {
@@ -120,9 +120,12 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
                 'visibility',
                 visibilityDict[plantData.layerId] ? 'visible' : 'none'
               );
+            map.setPaintProperty(
+                plantData.layerId, 
+                'fill-color', color);
         }
         
-    },[visibilityDict, selectedCanopy, coverage])
+    },[visibilityDict, selectedCanopy, coverage, color])
 
     return(
         <div className = "plant-ctrl" onMouseEnter={highlightRange} onMouseLeave={removeHighlight}>
