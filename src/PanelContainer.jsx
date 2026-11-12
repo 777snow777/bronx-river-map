@@ -60,7 +60,7 @@ export default function PanelContainer({mapLayers}) {
 
     useEffect(()=>{
         if (!plantProfiles){
-            fetch("/google-api/macros/s/"+GOOGLE_SCRIPT_ID+"/exec", {
+            fetch("https://google.com/"+GOOGLE_SCRIPT_ID+"/exec", {
                 method: "GET",
                 headers: {
                   "Accept": "application/json"
