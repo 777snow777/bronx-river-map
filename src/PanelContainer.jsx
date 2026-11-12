@@ -60,12 +60,13 @@ export default function PanelContainer({mapLayers}) {
 
     useEffect(()=>{
         if (!plantProfiles){
-            fetch("https://google.com/"+GOOGLE_SCRIPT_ID+"/exec", {
-                method: "GET",
-                headers: {
-                  "Accept": "application/json"
-                }
-            })
+            // fetch("/google-api/macros/s/"+GOOGLE_SCRIPT_ID+"/exec", {
+            //     method: "GET",
+            //     headers: {
+            //       "Accept": "application/json"
+            //     }
+            // })
+            fetch(`https://script.google.com/macros/s/AKfycbxRRHjZu-G1Djojo4qWnjgpMqupkDVl3MO3tP_s7aB3PvyirDawmeUCBnvsaQX7wZovHg/exec`)
             .then((response) => {
                   if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -95,7 +96,7 @@ export default function PanelContainer({mapLayers}) {
     return(
         <div className="panel-container"> 
         {
-            (plantProfiles) ? 
+            (plantProfiles) && (mapReady) ? 
             <>
             <div className='tab-container'>
                 <div className='header-panel'>
