@@ -18,11 +18,17 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
         }));
     };
 
+    function updateSelected(){
+      let next = {}
+      // if (layer.symbology == "multi")
+        // setSelected({layerId: layer.id, value: })
+    }
+
     function renderLayerColor(){
       if (layer.symbology == "multi"){
         return (
           Object.entries(layer.classifications).map(([key, value]) => (
-            <div className="layer-class" key={key}>
+            <div className="layer-class" key={key} onClick={updateSelected()}>
               <div className={layer.type+"-color"} style={{backgroundColor: value}}></div>
               <div>{key}</div>
             </div>
@@ -30,8 +36,9 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
         )
       }else{
         return (
-          <div className="layer-class">
+          <div className="layer-single">
             <div className={layer.symbology == "gradient" ? "gradient-color" : layer.type+"-color"} style={{background: layer.symbology == "gradient" ? `linear-gradient(to bottom, ${layer.colorRange[1]}, ${layer.colorRange[0]})` : layer.color}}></div>
+            <div>{layer.symbolName}</div>
           </div>
         )
       } 
@@ -39,7 +46,7 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
 
     return (
         <div className="data-layer">
-            <div className="layer-heading" style={{borderBottom: layerVis ? "0.5px solid #10098f" : "none"}}>
+            <div className="layer-heading">
               <div className="custom-checkbox">
                     <label className="control control--checkbox">
                         <input type="checkbox" checked={layerVis} onChange={toggleLayer}/>                        
@@ -48,7 +55,7 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
                 </div>
                 <div className="layer-name">{layer.label}</div>
             </div>
-            <div className="data-vis">
+            <div className="data-vis" style={{border: layerVis ? "0.5px solid #d2e0ad" : "none"}}>
                {layerVis && renderLayerColor()}
             </div>
         </div>

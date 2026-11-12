@@ -900,14 +900,22 @@ label{
     font-size: 1.2em;
 }
 
-.layer-class{
+.layer-class, .layer-single{
     display: flex;
+    width: 100%;
     align-items: center;
-    font-size: 0.8em;
-    margin-left: 8%;
-    line-height: 1.5;
-    padding: 0.5% 0;
+    font-size: 0.7rem;
+    line-height: 1;
+    margin: 0% 8% 1% 0;
+    padding: 0.5%;
+    box-sizing: border-box;
 }
+/* 
+.layer-class:hover{
+    border: 2px solid #eded05;
+    background:#bdbd0024; 
+    cursor: pointer;
+} */
 
 .layer-name{
     margin-left: 6px;

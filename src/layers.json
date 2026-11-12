@@ -13,7 +13,7 @@
                 "symbology": "multi", 
                 "classifications": {
                     "Bronx River": "#001b73",
-                    "Lake": "#00476e"
+                    "Lake": "#7482c2"
                 },
                 "visibility": "visible",
                 "level": "base",
@@ -25,14 +25,15 @@
             { 
                 "id": "boundary", 
                 "data": "boundary.geojson",
-                "label": "Watershed Boundary", 
+                "label": "Bronx River Watershed", 
                 "symbology": "single", 
-                "color": "#ff6c3b",
                 "type": "line",
                 "width": 1,
                 "opacity": 1,
                 "visibility": "visible",
                 "level": "base",
+                "symbolName": "Boundary",
+                "color": "#ff6c3b",
                 "metadata": {
                     "sourceURL": "",
                     "sourceDesc": ""
@@ -44,6 +45,7 @@
                 "label": "Topography", 
                 "type": "line",
                 "symbology": "single", 
+                "symbolName": "Topographic contour (10ft)",
                 "color": "#960267",
                 "opacity": 1,
                 "width": 0.5,
@@ -63,7 +65,7 @@
         { 
                 "id": "hydric-soils", 
                 "label": "Hydric soils", 
-                "data": "hydric_soils.geojson",
+                "data": "hydric.geojson",
                 "opacity": 1,
                 "type": "fill",
                 "symbology": "multi", 
@@ -133,7 +135,7 @@
                 "classField": "layer",
                 "classifications":{
                     "Forested Wetlands": "#53731a", 
-                    "Freshwater Wetlands":"#24cced", 
+                    "Freshwater Wetlands":"#026ed4", 
                     "Tidal Wetlands": "#3e5bfa"
                 },
                 "visibility": "visible",
@@ -185,6 +187,7 @@
                 "opacity": 1,
                 "classField": "Waterbody",
                 "color": "#bf0033",
+                "symbolName":  "CSO outfall",
                 "visibility": "visible",
                 "level": "top",
                 "metadata": {
@@ -203,8 +206,9 @@
                 "label": "Canopy Coverage", 
                 "type": "fill",
                 "symbology": "single", 
-                "color": "#6fa368",
-                "opacity": 0.8,
+                "symbolName": "Existing canopy",
+                "color": "#8dbd84",
+                "opacity": 0.7,
                 "visibility": "visible",
                 "level": "top",
                 "metadata": {
@@ -217,7 +221,8 @@
                 "data": "practical_canopy.geojson",
                 "type": "fill",
                 "opacity": 0.9,
-                "symbology": "gradient",  
+                "symbology": "gradient",
+                "symbolName": "Practical canopy (%) per Neighborhood Tabulation Area",  
                 "classField": "practcanopy_total_percent",
                 "classRange": [0, 40],
                 "colorRange": ["#FFFFFF", "#0000FF"],

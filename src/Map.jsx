@@ -20,16 +20,7 @@ export function renderLayer(layer, map){
     });
   }
   let color = ""
-  if (layer.symbology == "single"){
-    color = layer.color
-  }else if(layer.symbology == "multi"){
-    color = ['match', ['get', layer.classField]]
-    Object.entries(layer.classifications).map(([key, value]) =>{
-      color.push(key)
-      color.push(value)
-    })
-    color.push("#999999")
-  }else{
+  if (layer.symbology == "gradient"){
     color = [
       'interpolate',
       ['linear'],
@@ -37,6 +28,15 @@ export function renderLayer(layer, map){
         layer.classRange[0], layer.colorRange[0],
         layer.classRange[1], layer.colorRange[1],
     ]
+  }else if (layer.symbology == "multi"){
+    color = ['match', ['get', layer.classField]]
+    Object.entries(layer.classifications).map(([key, value]) =>{
+      color.push(key)
+      color.push(value)
+    })
+    color.push("#999999")
+  }else{
+    color = layer.color
   }
   let opacity = ""
   if (layer.opacity == "curve"){
