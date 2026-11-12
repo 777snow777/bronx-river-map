@@ -1,21 +1,22 @@
 import "./panelcontainer.css";
 import { PieChart } from '@mui/x-charts/PieChart';
 import { legendClasses } from '@mui/x-charts/ChartsLegend';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-const classes = ['Native', 'Invasive', 'Naturalized'];
-const classColors = {
-    'Native': '#32a852',
-    'Invasive': '#d42632',
-    'Naturalized': '#edda79',
-};
 
-export default function CanopyPieChart({chartData,  title}) {
+export default function CanopyPieChart({chartData,  title, canopyColors}) {
       
     return(
-        <>
         <div className="section-container">
-            <div className="plant-category">{title}</div>
+            <div className="chart-heading">{title}</div>
+            <div className="canopy-legend">
+                {Object.entries(canopyColors).map(([key, value])=>(
+                    <div key={key} className="legend-item">
+                        <div className="legend-color" style={{backgroundColor: value}}></div>
+                        <div className="legend-label">{key}</div>
+                    </div>
+                ))}
+            </div>
             <PieChart 
                 series={[{ 
                     data: chartData, 
@@ -24,33 +25,10 @@ export default function CanopyPieChart({chartData,  title}) {
                     valueFormatter: (item) => `${item.value}%`,
                     },
                 ]}
-                slotProps={{
-                    legend: {
-                        sx: {
-                            '& .MuiChartsLegend-label': {
-                            fontSize: '11px !important', 
-                            },
-                            [`& .${legendClasses.mark}`]: {
-                                width: '10px',
-                                height: '10px',
-                                rx: '5px',
-                                ry: '5px',
-                            },
-                            
-                        },
-                        direction: 'row',
-                        position: {
-                            vertical: 'top',
-                            horizontal: 'middle',
-                        },                            
-                        padding: 0,  
-                    },
-                }}
-                margin={{ top: 20, bottom: 20, left: 20, right: 20 }}
-                height={250}
-                />  
-            </div>
-        
-        </>
+                hideLegend
+            margin={{ top: 20, bottom: 20, left: 20, right: 20 }}
+            height={250}
+            />  
+        </div>
     )
 }

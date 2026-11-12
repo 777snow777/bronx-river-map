@@ -1,61 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import "./panelcontainer.css";
-import SpeciesPieChart from './SpeciesPieChart';
-import TreeMap from './TreeMap';
+import SiteCanopyOverview from './SiteCanopyOverview';
 import Papa from "papaparse";
 import CanopyPieChart from './CanopyPieChart';
-let plantsFn = "rsa_site_obs.csv"
+import GroundcoverVis from './GroundcoverVis';
+let woodyFn = "rsa_site_woody.csv" 
+let groundFn = "rsa_site_ground.csv" 
+
+const canopyColors = {
+    "Seedlings": "#c5db58", 
+    "Midstory (2 - 9cm DBH)": "#edb611", 
+    "Overstory (10-30cm DBH)": "#f3abf7",
+    "Overstory (31-50cm DBH)": "#ac51b0",
+    "Overstory (51-75cm DBH)": "#7d1487",
+    "Overstory (>75cm DBH)": "#59004d"
+}
 
 
-export default function RsaSiteFeature({siteData, plantProfiles, map}) {
+export default function RsaSiteFeature({siteData, plantProfiles}) {
     const [canopyProfile, setCanopyProfile] = useState([])
-    const [siteSpecies, setSiteSpecies] = useState(null)
+    const [woodySpecies, setWoodySpecies] = useState(null)
+    const [groundSpecies, setGroundSpecies] = useState(null)
 
     function generateCanopyChart(setter, src){
         let chart = []
-        let other = 0
-        let canpopyColors = ["#ded85b", "#7baac9", "#a3005a", "#2ab500","#de7a40","#004219"]
         src.map((item, index) =>{
             let data = item.split(":")
-            chart.push({id: index, value: data[1], label: data[0], color: canpopyColors[index]})  
+            let label = data[0]
+            chart.push({id: index, value: data[1], label: data[0], color: canopyColors[label]})  
         })
         setter(chart)
     }
     
     function getSiteSpecies(){
-        Papa.parse(plantsFn, {
+        Papa.parse(woodyFn, {
             download: true,
             delimiter: ",",
             header: true,        
             complete: function (results) {
-                let filtered = results.data.filter((row)=>row.SurveyID4.slice(0,12) == siteData.SITE_ID)
-                setSiteSpecies(filtered)
+                let filtered = results.data.filter((row)=>row.SurveyID4 === siteData.SurveyID4)
+                console.log(filtered.data)
+                setWoodySpecies(filtered)
             }
         })
-    }
-
-    function generateTreeMapData(){
-        Papa.parse(plantsFn, {
+        Papa.parse(groundFn, {
             download: true,
             delimiter: ",",
             header: true,        
             complete: function (results) {
-                let native =[]
-                let invasive =[]
-                let naturalized =[]
-                let filtered = results.data.filter((row)=>row.SurveyID4.slice(0,12) == siteData.SITE_ID)
-                filtered.forEach((row)=>{
-                    if (row.category =="Native"){
-                        native.push(row)
-                    }else if (row.category =="Invasive"){
-                        invasive.push(row)
-                    }else{
-                        naturalized.push(row)
-                    }
-                })
-                setNativeList(native)
-                setInvasiveList(invasive)
-                setNaturalizedList(naturalized)
+                let filtered = results.data.filter((row)=>row.SurveyID4 == siteData.SurveyID4)
+                setGroundSpecies(filtered)
             }
         })
     }
@@ -67,19 +61,48 @@ export default function RsaSiteFeature({siteData, plantProfiles, map}) {
 
     return (
         <>
-        {siteSpecies &&
-            <div className="right-panel">
-                    <div className='heading'>Rapid Site Assessement Site{siteData.SiteName != "N/A" ?  (": " + siteData.SiteName) : ""}</div>
-                    <div className="data-description">This site was assessed by the Natural Areas Conservancy in 2018-2019 via Rapid Site Assessments. The charts below highlight the species breakdown identified across each canopy level at this site.</div>
-                    <CanopyPieChart chartData={canopyProfile} title="Canopy Profile"/>
-                    {/* <TreeMap native={nativeList} invasive={invasiveList} naturalized={naturalizedList} canopyField="PlantCoverage"/> */}
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="All plants identified at this Site" canopyField="PlantCoverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Seedlings" canopyField="SeedlingCoverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Midstory (2 - 9cm DBH)" canopyField="MidstoryCoverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Overstory (10 - 30cm DBH)" canopyField="Overstory_1_Coverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Overstory (31 - 50cm DBH)" canopyField="Overstory_2_Coverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Overstory (51 - 75cm DBH)" canopyField="Overstory_3_Coverage" siteID={siteData.SITE_ID}/>
-                    <SpeciesPieChart siteSpecies={siteSpecies} title="Overstory (&gt;75cm DBH)"canopyField="Overstory_4_Coverage" siteID={siteData.SITE_ID}/> 
+        {woodySpecies && groundSpecies &&
+            <div className="rsa-site">
+                    <div className='rsa-site-heading'>{siteData.SiteName != "N/A" ?  (siteData.SiteName) : ""}</div>
+                    <div className="rsa-content">
+                        <div className="data-description">This site was assessed by the Natural Areas Conservancy in 2018-2021 via Rapid Site Assessments. The charts below highlight the species breakdown identified across each canopy level at this site.</div>
+                        <div className="site-overview">
+                            <div className="overview-entry"><span>Invasive herbaceous cover (%): </span><span>{siteData.Invasive_Herb_Perc}</span></div>
+                            <div className="overview-entry"><span>Native herbaceous cover (%): </span><span>{siteData.Native_Herb_Perc}</span></div>
+                            <div className="overview-multi"><span>Native woody stems per hectare:</span>
+                                <div><span>Seedlings: </span><span>{Math.round(siteData.Native_Tree_Seedlings_Ha)}</span></div>
+                                <div><span>Midstory: </span><span>{Math.round(siteData.Native_Midstory_Ha)}</span></div>
+                                <div><span>Overstory: </span><span>{Math.round(siteData.Survey_1_Native_Overstory_m2_BA_Ha)}</span></div>
+                            </div>
+
+                        </div>
+
+                        {/* Make dropdown to toggle between woody and groundcover */}
+                        <div className="rsa-site-info site-herb">
+                            <div className="section-heading">Herbaceous Plants & <br></br>Woody Plants &lt; 2cm</div>
+                            <div className="section-body">
+                                <div className="data-description">This section includes vascular plant species (herbaceous, vine, and woody species w/ DBH &lt; 2cm) with foliage growing
+                                below breast height (1.37m/4.5ft)</div>
+                                <GroundcoverVis siteSpecies={groundSpecies} title="Groundcover"/>
+                            </div>
+                        </div>
+                        <div className="rsa-site-info site-woody">
+                            <div className="section-heading">Woody Plants</div>
+                            <div className="section-body">
+                                <div className="data-description">This section includes woody plants (defined as having a tree or shrub growth form in the <a href="https://plants.sc.egov.usda.gov">USDA PLANTS Database</a></div>
+                                <CanopyPieChart chartData={canopyProfile} canopyColors={canopyColors} title="Canopy Overview"/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Identified at this site" canopyField="PlantCoverage" siteID={siteData.SITE_ID}/>
+                                <div className="heading">Species by canopy level</div>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Seedlings" canopyField="SeedlingCoverage" siteID={siteData.SITE_ID}/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Midstory (2 - 9cm DBH)" canopyField="MidstoryCoverage" siteID={siteData.SITE_ID}/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Overstory (10 - 30cm DBH)" canopyField="Overstory_1_Coverage" siteID={siteData.SITE_ID}/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Overstory (31 - 50cm DBH)" canopyField="Overstory_2_Coverage" siteID={siteData.SITE_ID}/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Overstory (51 - 75cm DBH)" canopyField="Overstory_3_Coverage" siteID={siteData.SITE_ID}/>
+                                <SiteCanopyOverview siteSpecies={woodySpecies} title="Overstory (&gt;75cm DBH)"canopyField="Overstory_4_Coverage" siteID={siteData.SITE_ID}/> 
+                            </div>
+                        </div>   
+                    </div>
+                    
             </div>}
         </>
     )

@@ -1,22 +1,20 @@
 import PanelContainer from './PanelContainer';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import layers from "./layers.json"
 import './App.css';
 import 'maplibre-gl/dist/maplibre-gl.css'
 
 function App() {
-  const mapLayers = [
-   
-    { id: 'watershed', label: 'Bronx River Watershed' },
-    { id: 'nyc-parks-wetlands', label: 'NYC Parks Wetlands' },
-    { id: 'lpi-sites', label: 'Vegetation Survey Sites'},
-    { id: 'rsa-sites', label: 'RSA Sites'}
-  ];
+  const [mapLayers, setMapLayers] = useState(null)
 
+  useEffect(()=>{
+    setMapLayers(layers)
+  })
   return(
     <div className="App">
-      <PanelContainer layers={mapLayers}/>
+      {mapLayers && <PanelContainer mapLayers={mapLayers}/>}
     </div>
-  )
+)
 }
 
 export default App;

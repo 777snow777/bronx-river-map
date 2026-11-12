@@ -1,17 +1,19 @@
-import React, {useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import "./panelcontainer.css";
-import RSAPlantExplorer from './RSAPlantExplorer';
+import RsaExplorer from './RSAExplorer';
 import DataLayers from "./DataLayers";
-
-export default function LeftPanel({leftPanelState, map, plantProfiles}) {
+import FeaturedSites from './FeaturedSites';
+export default function LeftPanel({leftPanelState, map, plantProfiles, mapLayers, setRightPanelState, setSiteData}) {
     function selectPanelView(state){
         switch (state) {
-            case 'explorer': 
-                return (<RSAPlantExplorer map={map} plantProfiles={plantProfiles}/>)
+            case 'vegetation': 
+                return (<RsaExplorer map={map} plantProfiles={plantProfiles}/>)
             case "data-layers":
-                return (<DataLayers map={mapInstance} layers={layers}/>)
+                return (<DataLayers map={map} mapLayers={mapLayers}/>)
+            case "featured-sites":
+                return (<FeaturedSites map={map} setSiteData={setSiteData} setRightPanelState={setRightPanelState}/>)
             default:
-                return (<RSAPlantExplorer map={map} plantProfiles={plantProfiles}/>)
+                return (<DataLayers map={map} mapLayers={mapLayers}/>)
         }
     }
     return (

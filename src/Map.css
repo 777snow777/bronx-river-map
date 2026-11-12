@@ -2,6 +2,19 @@
   position: relative;
   width: 100%;
   height: calc(100vh - 200px);
+  visibility: none;
+}
+.map-loading{
+  position: absolute;
+  padding-top: 20%;
+  top: 8vh;
+  width: 75%;
+  height: 92vh;
+  background-color: white;
+  opacity: 0.9;
+  font-size: 1.4em;
+  z-index: 1;
+  left: 25%;
 }
 
 .map {
@@ -9,3 +22,14 @@
   width: 100vw;
   height: 100vh;
 }
+
+.popup-title{
+  color: black !important;
+  font-weight: 600;
+  font-size: 1em;
+}
+.popup-value{
+  color: black;
+  font-size: 0.9em;
+}
+

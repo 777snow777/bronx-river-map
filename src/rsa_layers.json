@@ -1,0 +1,97 @@
+{
+"ground": 
+    { 
+        "category": "Herbaceous Coverage",
+        "layers": [
+            { 
+                "id": "native-herb-perc", 
+                "label": "Native plants", 
+                "classField": "Native_Herb_Perc",
+                "classRange": [0, 136],
+                "colorRange": ["#FFFFFF", "#93a603"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            },
+            { 
+                "id": "invasive-herb-perc", 
+                "label": "Invasive plants", 
+                "classField": "Invasive_Herb_Perc",
+                "classRange": [0, 107],
+                "colorRange": ["#FFFFFF", "#93a603"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            }
+        ]
+    },
+"woody" :
+    {
+        "category": "Woody Stems Per Hectare",
+        "layers": [
+            { 
+                "id": "native-tree-seedlings", 
+                "label": "Native Seedlings", 
+                "classField": "Native_Tree_Seedlings_Ha",
+                "classRange": [0, 62500],
+                "colorRange": ["#FFFFFF", "#021de6"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            },
+            { 
+                "id": "invasive-midstory", 
+                "label": "Invasive Midstory", 
+                "classField": "Invasive_Midstory_Ha",
+                "classRange": [0, 542],
+                "colorRange": ["#FFFFFF", "#021de6"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            },
+            { 
+                "id": "native-midstory", 
+                "label": "Native Midstory", 
+                "classField": "Native_Midstory_Ha",
+                "classRange": [0, 669],
+                "colorRange": ["#FFFFFF", "#021de6"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            },
+            { 
+                "id": "invasive-overstory", 
+                "label": "Invasive Overstory", 
+                "classField": "Invasive_Overstory_m2_BA_Ha",
+                "classRange": [0, 17.02],
+                "colorRange": ["#FFFFFF", "#021de6"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            }, { 
+                "id": "native-overstory", 
+                "label": "Native Overstory", 
+                "classField": "Survey_1_Native_Overstory_m2_BA_Ha",
+                "classRange": [0, 67.74],
+                "colorRange": ["#FFFFFF", "#021de6"],
+                "opacity": "curve",
+                "data": "rsa_sites_full.geojson",
+                "type": "fill",
+                "symbology": "gradient",
+                "visibility": "visible"
+            }
+        ]
+    }
+}

@@ -1,0 +1,393 @@
+,scientific,common,category,SurveyID4,SiteSpeciesPercent,range_min,range_max
+0,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0002_20188218350,1 to 10,1,10
+1,Hedera helix,English ivy,Naturalized,X002_RSA0002_20188218350,1 to 10,1,10
+2,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0003_20210706122800,1 to 10,1,10
+3,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0003_20210706122800,1 to 10,1,10
+4,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0003_20210706122800,1 to 10,1,10
+5,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0003_20210706122800,1 to 10,1,10
+6,Impatiens capensis,Jewelweed,Native,X002_RSA0003_20210706122800,1 to 10,1,10
+7,Rosa multiflora,Multiflora rose,Invasive,X002_RSA0004_201873117930,1 to 10,1,10
+8,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0004_201873117930,1 to 10,1,10
+9,Apocynum cannabinum,Hemp dogbane,Native,X002_RSA0004_201873117930,1 to 10,1,10
+10,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0005_2018731184512,1 to 10,1,10
+11,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0005_2018731184512,1 to 10,1,10
+12,Solanum dulcamara,Bittersweet nightshade,Naturalized,X002_RSA0006_20187272000,1 to 10,1,10
+13,Parthenocissus tricuspidata,Boston ivy,Naturalized,X002_RSA0006_20187272000,1 to 10,1,10
+14,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0006_20187272000,1 to 10,1,10
+15,Smilax rotundifolia,Roundleaf greenbrier,Native,X002_RSA0006_20187272000,1 to 10,1,10
+16,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0041_20197201900,1 to 10,1,10
+17,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0041_20197201900,1 to 10,1,10
+18,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0042_20198919029,1 to 10,1,10
+19,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0042_20198919029,1 to 10,1,10
+20,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0042_20198919029,1 to 10,1,10
+21,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0043_201982719016,1 to 10,1,10
+22,Circaea lutetiana ssp. canadensis,Broadleaf enchanter's nightshade,Native,X002_RSA0043_201982719016,1 to 10,1,10
+23,Rubus occidentalis,Black raspberry,Native,X002_RSA0043_201982719016,1 to 10,1,10
+24,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0043_201982719016,1 to 10,1,10
+25,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0043_201982719016,1 to 10,1,10
+26,Impatiens capensis,Jewelweed,Native,X002_RSA0043_201982719016,1 to 10,1,10
+27,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0043_201982719016,1 to 10,1,10
+28,Ageratina altissima,White snakeroot,Native,X002_RSA0043_201982719016,1 to 10,1,10
+29,Commelina communis,Asiatic dayflower,Naturalized,X002_RSA0043_201982719016,1 to 10,1,10
+30,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0044_201910182107,1 to 10,1,10
+31,Rubus flagellaris,Northern dewberry,Native,X002_RSA0044_201910182107,1 to 10,1,10
+32,Euonymus fortunei,Wintercreeper,Invasive,X002_RSA0044_201910182107,1 to 10,1,10
+33,Impatiens capensis,Jewelweed,Native,X002_RSA0049_20199132100,1 to 10,1,10
+34,Polygonatum,Solomon's seal (Genus),Unclassified,X002_RSA0049_20199132100,1 to 10,1,10
+35,Ageratina altissima,White snakeroot,Native,X002_RSA0049_20199132100,1 to 10,1,10
+36,Rubus flagellaris,Northern dewberry,Native,X002_RSA0049_20199132100,1 to 10,1,10
+37,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0050_201993020249,1 to 10,1,10
+38,Ageratina altissima,White snakeroot,Native,X002_RSA0050_201993020249,1 to 10,1,10
+39,Impatiens capensis,Jewelweed,Native,X002_RSA0050_201993020249,1 to 10,1,10
+40,Polygonatum biflorum,Smooth Solomon's seal,Native,X002_RSA0050_201993020249,1 to 10,1,10
+41,Smilax,Greenbrier (Genus),Unclassified,X002_RSA0050_201993020249,1 to 10,1,10
+42,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0050_201993020249,1 to 10,1,10
+43,Rubus occidentalis,Black raspberry,Native,X002_RSA0050_201993020249,1 to 10,1,10
+44,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0050_201993020249,1 to 10,1,10
+45,Eurybia divaricata,White wood aster,Native,X002_RSA0052_201993193037,1 to 10,1,10
+46,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0052_201993193037,1 to 10,1,10
+47,Maianthemum racemosum,False Solomon's seal,Native,X002_RSA0052_201993193037,1 to 10,1,10
+48,Ageratina altissima,White snakeroot,Native,X002_RSA0052_201993193037,1 to 10,1,10
+49,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0055_20199418220,1 to 10,1,10
+50,Polygonum ×bohemicum ,Bohemian knotweed,Invasive,X002_RSA0055_20199418220,1 to 10,1,10
+51,Wisteria,Wisteria (Genus),Unclassified,X002_RSA0056_20198271970,1 to 10,1,10
+52,Eurybia divaricata,White wood aster,Native,X002_RSA0056_20198271970,1 to 10,1,10
+53,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0056_20198271970,1 to 10,1,10
+54,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0056_20198271970,1 to 10,1,10
+55,Polygonum ×bohemicum ,Bohemian knotweed,Invasive,X002_RSA0056_20198271970,1 to 10,1,10
+56,Impatiens capensis,Jewelweed,Native,X002_RSA0056_20198271970,1 to 10,1,10
+57,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0057_201971218580,1 to 10,1,10
+58,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0057_201971218580,1 to 10,1,10
+59,Carex pensylvanica,Pennsylvania sedge,Native,X002_RSA0057_201971218580,1 to 10,1,10
+60,Solidago caesia,Blue-stemmed goldenrod,Native,X002_RSA0057_201971218580,1 to 10,1,10
+61,Danthonia spicata,Poverty oatgrass,Native,X002_RSA0057_201971218580,1 to 10,1,10
+62,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0057_201971218580,1 to 10,1,10
+63,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0057_201971218580,1 to 10,1,10
+64,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0060_2019935100,1 to 10,1,10
+65,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0060_2019935100,1 to 10,1,10
+67,Artemisia vulgaris,Common mugwort,Invasive,X004_RSA0002_2018730161750,1 to 10,1,10
+68,Impatiens capensis,Jewelweed,Native,X004_RSA0002_2018730161750,1 to 10,1,10
+69,Celastrus orbiculatus,Oriental bittersweet,Invasive,X004_RSA0002_2018730161750,1 to 10,1,10
+70,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X004_RSA0003_2018726182117,1 to 10,1,10
+71,Arctium,Burdock (Genus),Unclassified,X004_RSA0003_2018726182117,1 to 10,1,10
+72,Toxicodendron radicans,Eastern poison ivy,Native,X004_RSA0003_2018726182117,1 to 10,1,10
+73,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X004_RSA0004_2018726182511,1 to 10,1,10
+74,Hedera helix,English ivy,Naturalized,X004_RSA0008_2018730132639,1 to 10,1,10
+75,Toxicodendron radicans,Eastern poison ivy,Native,X004_RSA0011_201872619451,1 to 10,1,10
+76,Parthenocissus quinquefolia,Virginia creeper,Native,X004_RSA0011_201872619451,1 to 10,1,10
+77,Arctium,Burdock (Genus),Unclassified,X004_RSA0013_201910111900,1 to 10,1,10
+78,Artemisia vulgaris,Common mugwort,Invasive,X004_RSA0013_201910111900,1 to 10,1,10
+79,Polygonum cuspidatum,Japanese knotweed,Invasive,X004_RSA0013_201910111900,1 to 10,1,10
+80,Convolvulus arvensis,Field bindweed,Naturalized,X004_RSA0013_201910111900,1 to 10,1,10
+81,Cryptotaenia canadensis,Canadian honewort,Native,X004_RSA0013_201910111900,1 to 10,1,10
+82,Celastrus orbiculatus,Oriental bittersweet,Invasive,X004_RSA0013_201910111900,1 to 10,1,10
+83,Ageratina altissima,White snakeroot,Native,X004_RSA0013_201910111900,1 to 10,1,10
+84,Urtica dioica,Stinging nettle,Native,X002_RSA0002_20188218350,11 to 25,11,25
+85,Impatiens capensis,Jewelweed,Native,X002_RSA0002_20188218350,11 to 25,11,25
+86,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0003_20210706122800,11 to 25,11,25
+87,Impatiens capensis,Jewelweed,Native,X002_RSA0004_201873117930,11 to 25,11,25
+88,Urtica dioica,Stinging nettle,Native,X002_RSA0004_201873117930,11 to 25,11,25
+89,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0006_20187272000,11 to 25,11,25
+90,Polygonatum,Solomon's seal (Genus),Unclassified,X002_RSA0041_20197201900,11 to 25,11,25
+91,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0043_201982719016,11 to 25,11,25
+92,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0043_201982719016,11 to 25,11,25
+93,Solidago rugosa,Wrinkleleaf goldenrod,Native,X002_RSA0044_201910182107,11 to 25,11,25
+94,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0049_20199132100,11 to 25,11,25
+95,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0049_20199132100,11 to 25,11,25
+96,Eurybia divaricata,White wood aster,Native,X002_RSA0050_201993020249,11 to 25,11,25
+97,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0050_201993020249,11 to 25,11,25
+98,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0050_201993020249,11 to 25,11,25
+99,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0050_201993020249,11 to 25,11,25
+100,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0052_201993193037,11 to 25,11,25
+101,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0052_201993193037,11 to 25,11,25
+102,Polygonum cuspidatum,Japanese knotweed,Invasive,X004_RSA0002_2018730161750,11 to 25,11,25
+103,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X004_RSA0002_2018730161750,11 to 25,11,25
+104,Parthenocissus quinquefolia,Virginia creeper,Native,X004_RSA0002_2018730161750,11 to 25,11,25
+105,Hedera helix,English ivy,Naturalized,X002_RSA0001_2021072983600,0 to 1,0,1
+106,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0001_2021072983600,0 to 1,0,1
+107,Polygonum virginianum,Jumpseed,Native,X002_RSA0001_2021072983600,0 to 1,0,1
+108,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0001_2021072983600,0 to 1,0,1
+109,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0002_20188218350,0 to 1,0,1
+110,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0002_20188218350,0 to 1,0,1
+111,Eurybia divaricata,White wood aster,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+112,Viola,Violet (Genus),Unclassified,X002_RSA0003_20210706122800,0 to 1,0,1
+113,Rosa multiflora,Multiflora rose,Invasive,X002_RSA0003_20210706122800,0 to 1,0,1
+114,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0003_20210706122800,0 to 1,0,1
+115,Polygonum virginianum,Jumpseed,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+116,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0003_20210706122800,0 to 1,0,1
+117,Arctium,Burdock (Genus),Unclassified,X002_RSA0003_20210706122800,0 to 1,0,1
+119,Chenopodium album,Lamb's quarters,Naturalized,X002_RSA0003_20210706122800,0 to 1,0,1
+120,Oxalis stricta,Common yellow woodsorrel,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+121,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+122,Geum,Avens (Genus),Unclassified,X002_RSA0003_20210706122800,0 to 1,0,1
+123,Laportea canadensis,Canadian woodnettle,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+124,Polygonatum,Solomon's seal (Genus),Unclassified,X002_RSA0003_20210706122800,0 to 1,0,1
+125,Saururus cernuus,Lizard's tail,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+126,Cyperus esculentus,Yellow nutsedge,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+127,Cryptotaenia canadensis,Canadian honewort,Native,X002_RSA0003_20210706122800,0 to 1,0,1
+128,Polygonum,Knotweed (Genus),Unclassified,X002_RSA0003_20210706122800,0 to 1,0,1
+129,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+130,Boltonia asteroides,False aster,Native,X002_RSA0041_20197201900,0 to 1,0,1
+131,Rudbeckia hirta,Black-eyed susan,Native,X002_RSA0041_20197201900,0 to 1,0,1
+132,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0041_20197201900,0 to 1,0,1
+133,Symphyotrichum,American aster (Genus),Native,X002_RSA0041_20197201900,0 to 1,0,1
+134,Althaea officinalis,Marsh mallow,Naturalized,X002_RSA0041_20197201900,0 to 1,0,1
+135,Apocynum,Dogbane (Genus),Native,X002_RSA0041_20197201900,0 to 1,0,1
+136,Epipactis helleborine,Broadleaf helleborine,Naturalized,X002_RSA0041_20197201900,0 to 1,0,1
+137,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+138,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+139,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+140,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+141,Ageratina altissima,White snakeroot,Native,X002_RSA0041_20197201900,0 to 1,0,1
+142,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0041_20197201900,0 to 1,0,1
+143,Plantago,Plantain (Genus),Unclassified,X002_RSA0041_20197201900,0 to 1,0,1
+144,Arctium Lappa,Greater burdock,Naturalized,X002_RSA0041_20197201900,0 to 1,0,1
+145,Dennstaedtia punctilobula,Eastern hay-scented fern,Native,X002_RSA0041_20197201900,0 to 1,0,1
+146,Rubus allegheniensis,Allegheny blackberry,Native,X002_RSA0041_20197201900,0 to 1,0,1
+147,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0042_20198919029,0 to 1,0,1
+148,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0042_20198919029,0 to 1,0,1
+149,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0042_20198919029,0 to 1,0,1
+150,Ageratina altissima,White snakeroot,Native,X002_RSA0042_20198919029,0 to 1,0,1
+151,Circaea lutetiana ssp. canadensis,Broadleaf enchanter's nightshade,Native,X002_RSA0042_20198919029,0 to 1,0,1
+152,Trillium,Trillium (Genus),Unclassified,X002_RSA0042_20198919029,0 to 1,0,1
+153,Rubus allegheniensis,Allegheny blackberry,Native,X002_RSA0043_201982719016,0 to 1,0,1
+154,Rosa multiflora,Multiflora rose,Invasive,X002_RSA0043_201982719016,0 to 1,0,1
+155,Taraxacum officinale,Common dandelion,Naturalized,X002_RSA0043_201982719016,0 to 1,0,1
+156,Trifolium,Clover (Genus),Unclassified,X002_RSA0043_201982719016,0 to 1,0,1
+157,Asclepias,Milkweed (Genus),Unclassified,X002_RSA0043_201982719016,0 to 1,0,1
+158,Hibiscus,Hibiscus (Genus),Unclassified,X002_RSA0043_201982719016,0 to 1,0,1
+159,Parthenocissus tricuspidata,Boston ivy,Naturalized,X002_RSA0043_201982719016,0 to 1,0,1
+160,Campsis radicans,Trumpet vine,Native,X002_RSA0043_201982719016,0 to 1,0,1
+161,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0044_201910182107,0 to 1,0,1
+162,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0044_201910182107,0 to 1,0,1
+163,Ageratina altissima,White snakeroot,Native,X002_RSA0044_201910182107,0 to 1,0,1
+164,Eurybia divaricata,White wood aster,Native,X002_RSA0044_201910182107,0 to 1,0,1
+165,Dichanthelium clandestinum,Deertongue grass,Native,X002_RSA0044_201910182107,0 to 1,0,1
+166,Solidago caesia,Blue-stemmed goldenrod,Native,X002_RSA0044_201910182107,0 to 1,0,1
+167,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0044_201910182107,0 to 1,0,1
+168,Commelina caroliniana,Carolina dayflower,Native,X002_RSA0044_201910182107,0 to 1,0,1
+169,Carex,Sedge (Genus),Unclassified,X002_RSA0044_201910182107,0 to 1,0,1
+170,Dichanthelium acuminatum,Tapered rosette grass,Native,X002_RSA0044_201910182107,0 to 1,0,1
+171,Hedera helix,English ivy,Naturalized,X002_RSA0044_201910182107,0 to 1,0,1
+172,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0044_201910182107,0 to 1,0,1
+173,Rubus phoenicolasius,Wineberry,Invasive,X002_RSA0044_201910182107,0 to 1,0,1
+174,Schizachyrium scoparium,Little bluestem,Native,X002_RSA0044_201910182107,0 to 1,0,1
+175,Smilax glauca,Cat greenbrier,Native,X002_RSA0044_201910182107,0 to 1,0,1
+177,Pyrola americana,American wintergreen,Native,X002_RSA0044_201910182107,0 to 1,0,1
+178,Carex pensylvanica,Pennsylvania sedge,Native,X002_RSA0044_201910182107,0 to 1,0,1
+179,Dryopteris marginalis,Marginal woodshield fern,Native,X002_RSA0049_20199132100,0 to 1,0,1
+180,Urtica dioica,Stinging nettle,Native,X002_RSA0049_20199132100,0 to 1,0,1
+181,Commelina communis,Asiatic dayflower,Naturalized,X002_RSA0049_20199132100,0 to 1,0,1
+182,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X002_RSA0049_20199132100,0 to 1,0,1
+183,Phytolacca americana,American pokeweed,Native,X002_RSA0049_20199132100,0 to 1,0,1
+184,Polystichum acrostichoides,Christmas fern,Native,X002_RSA0049_20199132100,0 to 1,0,1
+185,Bidens frondosa,Devil's beggartick,Native,X002_RSA0049_20199132100,0 to 1,0,1
+186,Smilax,Greenbrier (Genus),Unclassified,X002_RSA0049_20199132100,0 to 1,0,1
+187,Mikania scandens,Climbing hempvine,Native,X002_RSA0049_20199132100,0 to 1,0,1
+188,Lythrum salicaria,Purple loosestrife,Invasive,X002_RSA0049_20199132100,0 to 1,0,1
+189,Sicyos angulatus,One-seed bur cucumber,Native,X002_RSA0049_20199132100,0 to 1,0,1
+190,Lamiastrum galeobdolon,Yellow archangel,Naturalized,X002_RSA0049_20199132100,0 to 1,0,1
+191,Sagittaria latifolia,Broadleaf arrowhead,Native,X002_RSA0049_20199132100,0 to 1,0,1
+192,Rumex verticillatus,Swamp dock,Native,X002_RSA0049_20199132100,0 to 1,0,1
+193,Lysimachia quadriflora,Fourflower yellow loosestrife,Native,X002_RSA0049_20199132100,0 to 1,0,1
+194,Polygonum persicaria,Lady's thumb,Naturalized,X002_RSA0049_20199132100,0 to 1,0,1
+195,Euonymus fortunei,Wintercreeper,Invasive,X002_RSA0049_20199132100,0 to 1,0,1
+196,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0050_201993020249,0 to 1,0,1
+197,Peltandra virginica,Green arrow arum,Native,X002_RSA0050_201993020249,0 to 1,0,1
+198,Saururus cernuus,Lizard's tail,Native,X002_RSA0050_201993020249,0 to 1,0,1
+199,Vitis,Wild grape (Genus),Unclassified,X002_RSA0050_201993020249,0 to 1,0,1
+200,Laportea canadensis,Canadian woodnettle,Native,X002_RSA0050_201993020249,0 to 1,0,1
+201,Carthamus tinctorius,Safflower,Naturalized,X002_RSA0052_201993193037,0 to 1,0,1
+202,Verbascum thapsus,Mullein,Naturalized,X002_RSA0052_201993193037,0 to 1,0,1
+203,Lactuca serriola,Prickly lettuce,Naturalized,X002_RSA0052_201993193037,0 to 1,0,1
+204,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0052_201993193037,0 to 1,0,1
+205,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0052_201993193037,0 to 1,0,1
+206,Commelina communis,Asiatic dayflower,Naturalized,X002_RSA0052_201993193037,0 to 1,0,1
+207,Vitis,Wild grape (Genus),Unclassified,X002_RSA0052_201993193037,0 to 1,0,1
+208,Sicyos angulatus,One-seed bur cucumber,Native,X002_RSA0055_20199418220,0 to 1,0,1
+209,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+210,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0055_20199418220,0 to 1,0,1
+211,Carex plantaginea,Plantain-leaf sedge,Native,X002_RSA0055_20199418220,0 to 1,0,1
+212,Hedera helix,English ivy,Naturalized,X002_RSA0055_20199418220,0 to 1,0,1
+213,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+214,Smilax rotundifolia,Roundleaf greenbrier,Native,X002_RSA0055_20199418220,0 to 1,0,1
+215,Eurybia divaricata,White wood aster,Native,X002_RSA0055_20199418220,0 to 1,0,1
+216,Euonymus fortunei,Wintercreeper,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+217,Microstegium vimineum,Japanese stiltgrass,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+218,Ageratina altissima,White snakeroot,Native,X002_RSA0055_20199418220,0 to 1,0,1
+219,Parthenocissus tricuspidata,Boston ivy,Naturalized,X002_RSA0055_20199418220,0 to 1,0,1
+220,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+221,Solidago canadensis,Canada goldenrod,Native,X002_RSA0055_20199418220,0 to 1,0,1
+222,Maianthemum racemosum,False Solomon's seal,Native,X002_RSA0055_20199418220,0 to 1,0,1
+223,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0055_20199418220,0 to 1,0,1
+224,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X002_RSA0055_20199418220,0 to 1,0,1
+225,Commelina communis,Asiatic dayflower,Naturalized,X002_RSA0055_20199418220,0 to 1,0,1
+226,Impatiens capensis,Jewelweed,Native,X002_RSA0055_20199418220,0 to 1,0,1
+227,Viola,Violet (Genus),Unclassified,X002_RSA0055_20199418220,0 to 1,0,1
+228,Oxalis,Woodsorrel (Genus),Unclassified,X002_RSA0055_20199418220,0 to 1,0,1
+229,Polygonum virginianum,Jumpseed,Native,X002_RSA0055_20199418220,0 to 1,0,1
+230,Dichanthelium clandestinum,Deertongue grass,Native,X002_RSA0055_20199418220,0 to 1,0,1
+231,Deschampsia danthonioides,Annual hairgrass,Native,X002_RSA0055_20199418220,0 to 1,0,1
+232,Phytolacca americana,American pokeweed,Native,X002_RSA0056_20198271970,0 to 1,0,1
+233,Viola,Violet (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+234,Geum canadense,White avens,Native,X002_RSA0056_20198271970,0 to 1,0,1
+235,Rumex obtusifolius,Broad-leaved dock,Naturalized,X002_RSA0056_20198271970,0 to 1,0,1
+236,Rudbeckia laciniata,Cutleaf coneflower,Native,X002_RSA0056_20198271970,0 to 1,0,1
+237,Polygonum virginianum,Jumpseed,Native,X002_RSA0056_20198271970,0 to 1,0,1
+238,Lactuca serriola,Prickly lettuce,Naturalized,X002_RSA0056_20198271970,0 to 1,0,1
+239,Clematis ,Clematis (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+240,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0056_20198271970,0 to 1,0,1
+241,Microstegium vimineum,Japanese stiltgrass,Invasive,X002_RSA0056_20198271970,0 to 1,0,1
+242,Carex pensylvanica,Pennsylvania sedge,Native,X002_RSA0056_20198271970,0 to 1,0,1
+243,Vitis,Wild grape (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+244,Urtica dioica,Stinging nettle,Native,X002_RSA0056_20198271970,0 to 1,0,1
+245,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X002_RSA0056_20198271970,0 to 1,0,1
+246,Pyrola,Wintergreen (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+247,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+248,Maianthemum racemosum,False Solomon's seal,Native,X002_RSA0056_20198271970,0 to 1,0,1
+249,Conopholis americana,American cancer-root,Native,X002_RSA0056_20198271970,0 to 1,0,1
+250,Hedera helix,English ivy,Naturalized,X002_RSA0056_20198271970,0 to 1,0,1
+251,Parthenocissus tricuspidata,Boston ivy,Naturalized,X002_RSA0056_20198271970,0 to 1,0,1
+252,Lysimachia quadriflora,Fourflower yellow loosestrife,Native,X002_RSA0056_20198271970,0 to 1,0,1
+253,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0056_20198271970,0 to 1,0,1
+254,Boehmeria,False nettle (Genus),Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+255,Sicyos angulatus,One-seed bur cucumber,Native,X002_RSA0056_20198271970,0 to 1,0,1
+256,Ageratina altissima,White snakeroot,Native,X002_RSA0056_20198271970,0 to 1,0,1
+257,Pilea pumila,Canadian clearweed,Unclassified,X002_RSA0056_20198271970,0 to 1,0,1
+258,Eurybia divaricata,White wood aster,Native,X002_RSA0057_201971218580,0 to 1,0,1
+259,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0057_201971218580,0 to 1,0,1
+260,Oxalis,Woodsorrel (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+261,Ageratina altissima,White snakeroot,Native,X002_RSA0057_201971218580,0 to 1,0,1
+262,Impatiens capensis,Jewelweed,Native,X002_RSA0057_201971218580,0 to 1,0,1
+263,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X002_RSA0057_201971218580,0 to 1,0,1
+264,Acalypha rhomboidea,Common three-seeded mercury,Native,X002_RSA0057_201971218580,0 to 1,0,1
+265,Commelina communis,Asiatic dayflower,Naturalized,X002_RSA0057_201971218580,0 to 1,0,1
+266,Dichanthelium,Witchgrass (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+267,Artemisia,Mugwort (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+268,Desmodium,Tick clover (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+269,Arctium,Burdock (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+270,Plantago,Plantain (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+271,Juncus tenuis,Path rush,Native,X002_RSA0057_201971218580,0 to 1,0,1
+272,Sonchus,Sow thistle (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+273,Prunella vulgaris,Common self-heal,Native,X002_RSA0057_201971218580,0 to 1,0,1
+274,Viola,Violet (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+275,Polygonum persicaria,Lady's thumb,Naturalized,X002_RSA0057_201971218580,0 to 1,0,1
+276,Pyrola,Wintergreen (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+277,Maianthemum racemosum,False Solomon's seal,Native,X002_RSA0057_201971218580,0 to 1,0,1
+278,Erechtites,Burnweed (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+279,Polygonum virginianum,Jumpseed,Native,X002_RSA0057_201971218580,0 to 1,0,1
+280,Cirsium,Thistle (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+281,Conopholis americana,American cancer-root,Native,X002_RSA0057_201971218580,0 to 1,0,1
+282,Rubus flagellaris,Northern dewberry,Native,X002_RSA0057_201971218580,0 to 1,0,1
+283,Hedera helix,English ivy,Naturalized,X002_RSA0057_201971218580,0 to 1,0,1
+284,Microstegium vimineum,Japanese stiltgrass,Invasive,X002_RSA0057_201971218580,0 to 1,0,1
+285,Erigeron annuus,Annual fleabane,Native,X002_RSA0057_201971218580,0 to 1,0,1
+286,Potentilla simplex,Common cinquefoil,Native,X002_RSA0057_201971218580,0 to 1,0,1
+287,Rosa multiflora,Multiflora rose,Invasive,X002_RSA0057_201971218580,0 to 1,0,1
+288,Rubus allegheniensis,Allegheny blackberry,Native,X002_RSA0057_201971218580,0 to 1,0,1
+289,Carex,Sedge (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+290,Polygonatum biflorum,Smooth Solomon's seal,Native,X002_RSA0057_201971218580,0 to 1,0,1
+291,Solidago rugosa,Wrinkleleaf goldenrod,Native,X002_RSA0057_201971218580,0 to 1,0,1
+292,Mitchella repens,Partridgeberry,Native,X002_RSA0057_201971218580,0 to 1,0,1
+293,Vaccinium pallidum,Blue Ridge blueberry,Native,X002_RSA0057_201971218580,0 to 1,0,1
+294,Hieracium,Hawkweed (Genus),Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+295,Smilax rotundifolia,Roundleaf greenbrier,Native,X002_RSA0057_201971218580,0 to 1,0,1
+296,Hypoxis hirsuta,Eastern yellow stargrass,Native,X002_RSA0057_201971218580,0 to 1,0,1
+297,Chenopodium album,Lamb's quarters,Naturalized,X002_RSA0057_201971218580,0 to 1,0,1
+298,Cynanchum louiseae,Louis' swallow-wort,Invasive,X002_RSA0057_201971218580,0 to 1,0,1
+299,Geum canadense,White avens,Native,X002_RSA0057_201971218580,0 to 1,0,1
+300,Monotropa uniflora,Ghost plant,Native,X002_RSA0057_201971218580,0 to 1,0,1
+301,Epifagus virginiana,Beechdrops,Native,X002_RSA0057_201971218580,0 to 1,0,1
+302,Leersia virginica,Whitegrass,Native,X002_RSA0057_201971218580,0 to 1,0,1
+303,Pilea pumila,Canadian clearweed,Unclassified,X002_RSA0057_201971218580,0 to 1,0,1
+304,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0057_201971218580,0 to 1,0,1
+305,Maianthemum canadense,Canada mayflower,Native,X002_RSA0057_201971218580,0 to 1,0,1
+306,Lysimachia quadrifolia,Whorled loosestrife,Native,X002_RSA0057_201971218580,0 to 1,0,1
+307,Phytolacca americana,American pokeweed,Native,X002_RSA0057_201971218580,0 to 1,0,1
+308,Dennstaedtia punctilobula,Eastern hay-scented fern,Native,X002_RSA0060_2019935100,0 to 1,0,1
+309,Maianthemum canadense,Canada mayflower,Native,X002_RSA0060_2019935100,0 to 1,0,1
+310,Eurybia divaricata,White wood aster,Native,X002_RSA0060_2019935100,0 to 1,0,1
+311,Epifagus virginiana,Beechdrops,Native,X002_RSA0060_2019935100,0 to 1,0,1
+312,Microstegium vimineum,Japanese stiltgrass,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+313,Alliaria petiolata,Garlic mustard,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+314,Celastrus orbiculatus,Oriental bittersweet,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+315,Circaea lutetiana,Broadleaf enchanter's nightshade,Native,X002_RSA0060_2019935100,0 to 1,0,1
+316,Oxalis,Woodsorrel (Genus),Unclassified,X002_RSA0060_2019935100,0 to 1,0,1
+317,Hedera helix,English ivy,Naturalized,X002_RSA0060_2019935100,0 to 1,0,1
+318,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0060_2019935100,0 to 1,0,1
+319,Impatiens capensis,Jewelweed,Native,X002_RSA0060_2019935100,0 to 1,0,1
+320,Podophyllum peltatum,Mayapple,Native,X002_RSA0060_2019935100,0 to 1,0,1
+321,Polygonum virginianum,Jumpseed,Native,X002_RSA0060_2019935100,0 to 1,0,1
+322,Amaranthus retroflexus,Redroot pigweed,Native,X002_RSA0060_2019935100,0 to 1,0,1
+323,Viola,Violet (Genus),Unclassified,X002_RSA0060_2019935100,0 to 1,0,1
+324,Commelina caroliniana,Carolina dayflower,Native,X002_RSA0060_2019935100,0 to 1,0,1
+325,Geum canadense,White avens,Native,X002_RSA0060_2019935100,0 to 1,0,1
+326,Euonymus fortunei,Wintercreeper,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+327,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0060_2019935100,0 to 1,0,1
+328,Chenopodium album,Lamb's quarters,Naturalized,X002_RSA0060_2019935100,0 to 1,0,1
+329,Polygonum persicaria,Lady's thumb,Naturalized,X002_RSA0060_2019935100,0 to 1,0,1
+330,Dichanthelium clandestinum,Deertongue grass,Native,X002_RSA0060_2019935100,0 to 1,0,1
+331,Bidens,Burr-marigolds (Genus),Unclassified,X002_RSA0060_2019935100,0 to 1,0,1
+332,Linaria vulgaris,Yellow toadflax,Naturalized,X002_RSA0060_2019935100,0 to 1,0,1
+333,Phytolacca americana,American pokeweed,Native,X002_RSA0060_2019935100,0 to 1,0,1
+334,Lonicera japonica,Japanese honeysuckle,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+335,Conyza canadensis,Horseweed,Native,X002_RSA0060_2019935100,0 to 1,0,1
+336,Verbascum thapsus,Mullein,Naturalized,X002_RSA0060_2019935100,0 to 1,0,1
+337,Maianthemum racemosum,False Solomon's seal,Native,X002_RSA0060_2019935100,0 to 1,0,1
+338,Artemisia vulgaris,Common mugwort,Invasive,X002_RSA0060_2019935100,0 to 1,0,1
+339,Portulaca oleracea,Common purslane,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+340,Thalictrum dasycarpum,Purple meadow-rue,Native,X004_RSA0013_201910111900,0 to 1,0,1
+341,Amaranthus retroflexus,Redroot pigweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+342,Sicyos angulatus,One-seed bur cucumber,Native,X004_RSA0013_201910111900,0 to 1,0,1
+343,Ranunculus ficaria,Lesser celandine,Invasive,X004_RSA0013_201910111900,0 to 1,0,1
+344,Alliaria petiolata,Garlic mustard,Invasive,X004_RSA0013_201910111900,0 to 1,0,1
+345,Solidago,Goldenrod (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+346,Toxicodendron radicans,Eastern poison ivy,Native,X004_RSA0013_201910111900,0 to 1,0,1
+347,Juncus tenuis,Path rush,Native,X004_RSA0013_201910111900,0 to 1,0,1
+348,Eurybia divaricata,White wood aster,Native,X004_RSA0013_201910111900,0 to 1,0,1
+349,Pyrola americana,American wintergreen,Native,X004_RSA0013_201910111900,0 to 1,0,1
+350,Conyza canadensis,Horseweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+351,Melilotus officinalis,Yellow sweet clover,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+352,Symphyotrichum cordifolium,Heartleaf aster,Native,X004_RSA0013_201910111900,0 to 1,0,1
+353,Boltonia asteroides,False aster,Native,X004_RSA0013_201910111900,0 to 1,0,1
+354,Impatiens capensis,Jewelweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+355,Plantago,Plantain (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+356,Polygonum persicaria,Lady's thumb,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+357,Urtica dioica,Stinging nettle,Native,X004_RSA0013_201910111900,0 to 1,0,1
+358,Sonchus,Sow thistle (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+359,Humulus japonicus,Japanese hop,Invasive,X004_RSA0013_201910111900,0 to 1,0,1
+360,Rumex crispus,Curly Dock,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+361,Trifolium pratense,Red clover,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+362,Chenopodium album,Lamb's quarters,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+363,Oxalis,Woodsorrel (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+364,Erechtites hieraciifolius,American Burnweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+365,Pilea pumila,Canadian clearweed,Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+366,Galinsoga,Galinsoga (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+367,Lepidium virginicum,Virginia Pepperweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+368,Oenothera,Evening Primrose,Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+369,Ambrosia artemisiifolia,Common ragweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+370,Melilotus,Sweet clover,Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+371,Cuscuta,Dodders (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+372,Phytolacca americana,American pokeweed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+373,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X004_RSA0013_201910111900,0 to 1,0,1
+374,Commelina communis,Asiatic dayflower,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+375,Polygonum virginianum,Jumpseed,Native,X004_RSA0013_201910111900,0 to 1,0,1
+376,Parthenocissus quinquefolia,Virginia creeper,Native,X004_RSA0013_201910111900,0 to 1,0,1
+377,Smilax,Greenbrier (Genus),Unclassified,X004_RSA0013_201910111900,0 to 1,0,1
+378,Parthenocissus tricuspidata,Boston ivy,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+379,Viola sororia,Common blue violet,Native,X004_RSA0013_201910111900,0 to 1,0,1
+380,Taraxacum officinale,Common dandelion,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+381,Cichorium intybus,Chicory,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+382,Houttuynia cordata,Chameleon Plant,Invasive,X004_RSA0013_201910111900,0 to 1,0,1
+383,Hedera helix,English ivy,Naturalized,X004_RSA0013_201910111900,0 to 1,0,1
+384,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0002_20188218350,26 to 50,26,50
+385,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0004_201873117930,26 to 50,26,50
+386,Eurybia divaricata,White wood aster,Native,X002_RSA0041_20197201900,26 to 50,26,50
+387,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0043_201982719016,26 to 50,26,50
+388,Smilax rotundifolia,Roundleaf greenbrier,Native,X002_RSA0044_201910182107,26 to 50,26,50
+389,Solidago,Goldenrod (Genus),Unclassified,X002_RSA0049_20199132100,26 to 50,26,50
+390,Toxicodendron radicans,Eastern poison ivy,Native,X002_RSA0049_20199132100,26 to 50,26,50
+391,Parthenocissus quinquefolia,Virginia creeper,Native,X002_RSA0049_20199132100,26 to 50,26,50
+392,Ampelopsis brevipedunculata,Porcelain berry,Invasive,X004_RSA0008_2018730132639,26 to 50,26,50
+393,Polygonum cuspidatum,Japanese knotweed,Invasive,X002_RSA0001_2021072983600,51 to 75,51,75
+394,Polygonum cuspidatum,Japanese knotweed,Invasive,X004_RSA0008_2018730132639,51 to 75,51,75

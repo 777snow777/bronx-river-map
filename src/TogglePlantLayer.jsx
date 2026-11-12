@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Papa from "papaparse";
-let plantsFn = "rsa_site_obs.csv"
 
 export default function TogglePlantLayer({map, plantName, type}) {
     const [visibility, setVisibility] = useState(false)

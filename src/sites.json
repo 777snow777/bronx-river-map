@@ -1,0 +1,46 @@
+[
+    {
+        "Name": "Shoelace Park",
+        "layerID": 0,
+        "plants": ["Artemisia vulgaris", "Cichorium intybus", "Toxicodendron radicans", "Tilia americana", "Liriodendron tulipifera", "Acer saccharum"],
+        "overview":"",
+        "existingCanopyPerc": 68.2
+    },
+    {
+        "Name": "Bronx River Forest",
+        "layerID": 1,
+        "plants": ["Alliaria petiolata", "Ficaria verna", "Trifolium repens", "Acer negundo", "Reynoutria japonica", "Artemisia vulgaris"],
+        "overview":"",
+        "existingCanopyPerc": 83,
+        "imperviousRiverPerc": 0,
+        "vegetatedRiverPerc": 0
+    },
+    {
+        "Name": "New York Botanical Garden",
+        "layerID": 2,
+        "plants": ["Erythronium americanum", "Maianthemum racemosum", "Ficaria verna", "Liriodendron tulipifera", "Liquidambar styraciflua", "Fagus grandifolia"],
+        "overview":"",
+        "existingCanopyPerc": 67.6
+    },
+    {
+        "Name": "Starlight Park",
+        "layerID": 4,
+        "plants": ["Rudbeckia hirta", "Artemisia vulgaris", "Daucus carota", "Campsis radicans", "Cirsium vulgare", "Ailanthus altissima"],
+        "overview":"",
+        "existingCanopyPerc": 25.3
+    },
+    {
+        "Name": "Concrete Plant Park",
+        "layerID": 2,
+        "plants": ["Asclepias syriaca", "Artemisia vulgaris", "Phytolacca americana", "Rhus aromatica", "Lonicera sempervirens", "Trifolium pratense"] ,
+        "overview":"",
+        "existingCanopyPerc": 25.3
+    },
+    {
+        "Name": "Soundview Park",
+        "layerID": 5,
+        "plants": ["Rubus phoenicolasius", "Phytolacca americana", "Artemisia vulgaris", "Toxicodendron radicans", "Populus deltoides", "Ailanthus altissima"],
+        "overview":"",
+        "existingCanopyPerc": 26
+    }
+]

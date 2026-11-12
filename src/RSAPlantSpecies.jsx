@@ -1,11 +1,11 @@
-import React, {use, useEffect, useState} from 'react';
+import React, {useEffect, useContext} from 'react';
+import { CanopyContext } from "./CanopyContext";
 import './panelcontainer.css';
 import Papa from "papaparse";
-let rsaFn = "rsa_site_obs.csv"
+let rsaFn = "rsa_site_woody.csv" 
 
-export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisibilityDict, selectedCanopy, setCoverage, coverage, color}){  
-    const fillColors = {"Invasive": ["#FF0000", "#FF00BB", "#FF00FB"],"Native": ["#00FF00", "#00FFBB", "#00FFFB"], "Naturalized": ["#FFFF00", "#FFFFBB", "#FFFFFB"] }
-
+export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilityDict, visibilityRef, color}){  
+    const { map, selectedCanopy, coverage, setCoverage } = useContext(CanopyContext);
     const getCoverageProperty = () =>{
         switch (selectedCanopy){
             case "seedling":
@@ -23,7 +23,7 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
         const plantCoverage = {}; 
         let coverageProperty = getCoverageProperty()
         plantObs.forEach(row => {
-            const siteID = row['SurveyID4']?.slice(0,12).trim()
+            const siteID = (row['SurveyID4'] != "SOUNDVIEW") ? row['SurveyID4']?.slice(0,12).trim() : "SOUNDVIEW"
             const val = parseFloat(row[coverageProperty]); 
             if (siteID && !isNaN(val)) plantCoverage[siteID] = val;
         });
@@ -87,10 +87,15 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
     const togglePlantObs = () => {
         if (!map) return;
         const nextState = !visibilityDict[plantData.layerId];
-        setVisibilityDict(prevDictionary => ({
+        setVisibilityDict((prevDictionary) => {
+           const next ={
             ...prevDictionary, 
-            [plantData.layerId]: nextState  
-        }));
+            [plantData.layerId]: nextState 
+            } 
+            visibilityRef.current = next
+            return next
+        });
+        console.log(visibilityRef.current)
         map.setLayoutProperty(
             plantData.layerId,
             'visibility',
@@ -107,7 +112,7 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
                 delimiter: ",",
                 header: true,        
                 complete: function (results) {
-                    let plantObs = results.data.filter((row)=> row.scientific == plantData.scientific)
+                    let plantObs = results.data.filter((row)=> row.scientific == plantData.Scientific)
                     generatePlantCoverageLayer(plantObs, plantData.layerId)
                 },
                     error: function (error) {
@@ -129,11 +134,17 @@ export default function RSAPlantSpecies({map, plantData, visibilityDict, setVisi
 
     return(
         <div className = "plant-ctrl" onMouseEnter={highlightRange} onMouseLeave={removeHighlight}>
-            <div className="plant-label">
-                <input type="checkbox" name={plantData.layerId} checked={visibilityDict[plantData.layerId]} onChange={togglePlantObs}/>
-                <div className="plant-name"><div className='common'>{plantData.common}</div> <div className="scientific">{plantData.scientific}</div></div>
+            <div className="custom-checkbox">
+                <label className="control control--checkbox">
+                    <input type="checkbox" name={plantData.layerId} checked={visibilityDict[plantData.layerId]} onChange={togglePlantObs}/>
+                    <div className="control__indicator"></div>
+                </label>
             </div>
-            <div className="plant-color" style={{backgroundColor: color}}> </div>
+            <div className="plant-key">
+                    <div className="plant-name"><div className='common'>{plantData.Common}</div> <div className="scientific">{plantData.Scientific}</div></div>
+                    <div className="plant-color" style={{backgroundColor: color}}> </div>   
+                </div>
         </div>
     )
 }
+

@@ -1,0 +1,237 @@
+[
+    {
+        "category": "Watershed Overview",
+        "description": "",
+        "layers": [
+            { 
+                "id": "bodies-of-water", 
+                "data": "waterbodies.geojson",
+                "label": "Bodies of water", 
+                "opacity": 1,
+                "classField": "name",
+                "type": "fill",
+                "symbology": "multi", 
+                "classifications": {
+                    "Bronx River": "#001b73",
+                    "Lake": "#00476e"
+                },
+                "visibility": "visible",
+                "level": "base",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            },
+            { 
+                "id": "boundary", 
+                "data": "boundary.geojson",
+                "label": "Watershed Boundary", 
+                "symbology": "single", 
+                "color": "#ff6c3b",
+                "type": "line",
+                "width": 1,
+                "opacity": 1,
+                "visibility": "visible",
+                "level": "base",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            },
+            {
+                "id": "topo", 
+                "data": "contour_sm.geojson",
+                "label": "Topography", 
+                "type": "line",
+                "symbology": "single", 
+                "color": "#960267",
+                "opacity": 1,
+                "width": 0.5,
+                "visibility": "none",
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            }
+        ]
+  },
+  {
+    "category": "Wetlands",
+    "description": "Explain what a wetland is, what hydric soils are",
+    "layers": [
+        { 
+                "id": "hydric-soils", 
+                "label": "Hydric soils", 
+                "data": "hydric_soils.geojson",
+                "opacity": 1,
+                "type": "fill",
+                "symbology": "multi", 
+                "classField": "series",
+                "classifications": {
+                    "Canandaigua-Tonawanda silt loams": "#a6052b", 
+                    "Fluvaquentic Endoaquolls": "#690700",
+                    "Holderton-Fluvaquentic Endoaquolls complex": "#d45206", 
+                    "Limerick loam": "#a68b05", 
+                    "Natchaug muck": "#9ba605"
+                },
+                "visibility": "visible",                
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            },
+            { 
+                "id": "paved-marsh", 
+                "label": "Paved marshland", 
+                "data": "paved_marsh.geojson",
+                "opacity": 1,
+                "type": "fill",
+                "symbology": "multi", 
+                "classField": "series",
+                "classifications": {
+                    "Pavement & buildings, tidal marsh substratum": "#a4bab5"
+                },
+                "visibility": "visible",                
+                "level": "base",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            },
+        { 
+                "id": "nyc-parks-wetlands", 
+                "label": "NYC Wetlands", 
+                "data": "parks_wetlands.geojson",
+                "opacity": 1,
+                "type": "fill",
+                "symbology": "multi", 
+                "classField": "classname",
+                "classifications": {
+                    "Emergent": "#c6ff2b", 
+                    "Estuarine": "#9ae058",
+                    "Forested": "#3e590f", 
+                    "Scrub/Shrub": "#039908", 
+                    "Water-Estuarine": "#06bfaa"
+                },
+                "visibility": "visible",                
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "https://data.cityofnewyork.us/dataset/NYC-Wetlands/p48c-iqtu/about_data",
+                    "sourceDesc": "",
+                    "name": "NYC Wetlands Class",
+                    "identifierClass": "classname"
+                }
+            },
+            { 
+                "id": "nac-wetlands", 
+                "label": "Ecological Covertype (Wetlands)",
+                "data": "NAC_wetlands.geojson",
+                "type": "fill",
+                "symbology": "multi",  
+                "classField": "layer",
+                "classifications":{
+                    "Forested Wetlands": "#53731a", 
+                    "Freshwater Wetlands":"#24cced", 
+                    "Tidal Wetlands": "#3e5bfa"
+                },
+                "visibility": "visible",
+                "opacity": 1,
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "https://naturalareasnyc.org/data-sets-for-download/",
+                    "sourceName": "Natural Areas Conservancy Ecological Covertype",
+                    "sourceDesc": "",
+                    "name": "Ecological Covertype",
+                    "identifierClass": "layer" 
+                }
+            }
+    ]
+  },
+
+    {
+        "category": "Sewage System",
+        "description": "explain how sewage system relates to watershed health",
+        "layers": [
+            { 
+                "id": "sewer-system", 
+                "label": "Sewage Areas",
+                "data": "sewer_system.geojson",
+                "type": "fill",
+                "symbology": "multi",  
+                "classField": "COMB_OR_SE",
+                "classifications":{
+                    "COMBINED": "#f04005", 
+                    "SEPARATE":"#a85023", 
+                    "DIRECT DRAINAGE": "#f5cdb5"
+                },
+                "visibility": "none",
+                "opacity": 0.45,
+                "level": "base",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": "",
+                    "name": "Sewer System ",
+                    "identifierClass": "COMB_OR_SE"
+                }
+            },
+            { 
+                "id": "cso-locations", 
+                "label": "Combined Sewage Overflow",
+                "data": "cso_locations.geojson",
+                "type": "circle",
+                "symbology": "single",  
+                "opacity": 1,
+                "classField": "Waterbody",
+                "color": "#bf0033",
+                "visibility": "visible",
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""
+                }
+            }
+        ]
+      },
+      {
+        "category": "Canopy",
+        "layers": [
+            { 
+                "id": "existing-canopy", 
+                "data": "existing_sm.geojson",
+                "label": "Canopy Coverage", 
+                "type": "fill",
+                "symbology": "single", 
+                "color": "#6fa368",
+                "opacity": 0.8,
+                "visibility": "visible",
+                "level": "top",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": ""                }
+            },
+            { 
+                "id": "practical-canopy", 
+                "label": "Practical Canopy",
+                "data": "practical_canopy.geojson",
+                "type": "fill",
+                "opacity": 0.9,
+                "symbology": "gradient",  
+                "classField": "practcanopy_total_percent",
+                "classRange": [0, 40],
+                "colorRange": ["#FFFFFF", "#0000FF"],
+                "visibility": "none",
+                "level": "base",
+                "metadata": {
+                    "sourceURL": "",
+                    "sourceDesc": "",
+                    "name": "Practical Canopy (Percent)",
+                    "identifierClass": "practcanopy_total_percent"
+                }
+            }
+        ]
+
+      }
+    
+]
