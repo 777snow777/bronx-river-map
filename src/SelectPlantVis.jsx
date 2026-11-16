@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import { renderLayer } from "./Map";
 
-export default function PlantVis({map, layers}) {
+export default function PlantVis({map, layers, label}) {
     const [selectedGroup, setSelectedGroup] = useState("none")
     const currSelected = useRef(selectedGroup)
     function handleChangeGroup(event){
@@ -40,6 +40,18 @@ export default function PlantVis({map, layers}) {
                         <option key={index} value={layer.id}>{layer.label}</option>
                     ))}
                 </select>
+                {(currSelected.current != "none") && 
+                <>
+                    <div className="layer-single">
+                        <div className={"gradient-color"} style={{background: `linear-gradient(to bottom, #FFFFFF, ${(currSelected.current.includes("invasive")) ? '#c70011' : '#0202d4'}`}}></div>
+                        <div>{label}</div>
+                    </div>
+                    <div className="layer-single">
+                        <div className="fill-color" style={{background: "#474747"}}></div>
+                        <div>No data for this site</div>
+                    </div>
+                </>
+                }
             </div>
         </div>
     )

@@ -3,11 +3,12 @@ import React, {useEffect, useState} from 'react';
 import rsa_layers from "./rsa_layers.json"
 import SpeciesTable from "./SpeciesTable";
 import PlantVis from "./SelectPlantVis";
-
+import WetlandPlantFinder from "./WetlandPlantLocator";
 let descriptions ={
     "ground-cover": "Herbaceous coverage reflects the percent of canopy at each site embodied by the selected plant group. Darker shading indicates the plant group covers higher percent of the canopy.",
     "woody-hect": "Woody stems per hectare are calculated based on the species observed at each site. Darker shading indicates a higher volume of plants from the selected group.",
-    "woody-disp": "The list below displays common species within the surveyed ecosystems. \n\n Select a species to see its occurrence throughout the watershed. Woody species occurrence is determined by the species' percent of total stems per site. Herbaceous species occurrence is determined by the percentage of canopy covered by the species per site."
+    "woody-disp": "The table below lists common species within the surveyed ecosystems. \n\n Select a species to see its occurrence throughout the watershed. Woody species occurrence is determined by the species' percent of total stems per site. Herbaceous species occurrence is determined by the percentage of canopy covered by the species per site.",
+    "wetland-loc": "The table below lists species observed within the surveyed ecosystems that have the following Wetland Indicator Status: \n\n Obligative: At least 99% occur in wetlands \n Facultative Wetland: Usually occur in wetlands, but may occur in non-wetlands \n\n Select a species to see the ecosystems where it was observed."
 }
 
 export default function RsaExplorer({map, appliedLayers, plantProfiles}) {
@@ -98,7 +99,7 @@ export default function RsaExplorer({map, appliedLayers, plantProfiles}) {
                                 <div className="checkbox-label">Hide map layers</div>
                         </div>
                         <div className="desc">{descriptions["ground-cover"]}<br></br></div>
-                        <PlantVis map={map} layers={rsa_layers["ground"].layers}/>
+                        <PlantVis map={map} layers={rsa_layers["ground"].layers} label={"Percent of canopy coverage"}/>
                     </div>
                 }
                 <div id="woody-hect" className={(selectedType=="woody-hect") ? "selected" : "idle"} onClick={(e)=>handleTypeChange(e)}>Woody Stems Per Hectare</div>
@@ -114,10 +115,10 @@ export default function RsaExplorer({map, appliedLayers, plantProfiles}) {
                             <div className="checkbox-label">Hide map layers</div>
                         </div>
                         <div className="desc">{descriptions["woody-hect"]}<br></br></div>
-                        <PlantVis map={map} layers={rsa_layers["woody"].layers}/>
+                        <PlantVis map={map} layers={rsa_layers["woody"].layers} label={"Estimated woody stem count per hectare"}/>
                     </div>
                 }
-                {/* <div id="wetland-loc" className={(selectedType=="wetland-loc") ? "selected" : "idle"} onClick={(e)=>handleTypeChange(e)}>Wetland plant locator</div>
+                <div id="wetland-loc" className={(selectedType=="wetland-loc") ? "selected" : "idle"} onClick={(e)=>handleTypeChange(e)}>Wetland Plant Finder</div>
                 {(selectedType=="wetland-loc") &&
                     <div className="explorer-tool" >
                         <div className="toggle-layers">
@@ -129,10 +130,10 @@ export default function RsaExplorer({map, appliedLayers, plantProfiles}) {
                             </div>
                             <div className="checkbox-label">Hide map layers</div>
                         </div>
-                        <div className="desc">{descriptions["woody-disp"]}<br></br></div>
-                        <SpeciesTable map={map} plantProfiles={plantProfiles}/>    
+                        <div className="desc">{descriptions["wetland-loc"]}<br></br></div>
+                        <WetlandPlantFinder map={map}/>
                     </div>
-                } */}
+                }
                 <div id="woody-disp" className={(selectedType=="woody-disp") ? "selected" : "idle"} onClick={(e)=>handleTypeChange(e)}>Abundance Distributions</div>
                 {(selectedType=="woody-disp") &&
                     <div className="explorer-tool" >

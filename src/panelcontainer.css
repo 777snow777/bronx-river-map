@@ -328,6 +328,23 @@ input[type=radio] {
     top: 0;
 }
 
+.wetland-plants-key{
+    display: flex;
+}
+
+.wetland-plant{
+    font-size: 0.8em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    background-color: var(--map-accent-transp);
+}
+
+.wetland-plant:hover{
+    color: var(--map-color-bright);
+}
 
 .heading-container{
     position: relative;
@@ -394,6 +411,10 @@ input[type=radio] {
     line-height: 1.1em;
     padding: 5% 4%;
     /* border: 0.5px solid black; */
+}
+
+.explorer-body{
+    margin-bottom: 30%;
 }
 
 .explorer-tool{
@@ -695,7 +716,6 @@ label{
 
 .canopy-list-container{
     padding-bottom: 2%;
-    margin-bottom: 30%;
     width: 100%;
     box-sizing: border-box;
     height: 100%;
@@ -945,6 +965,10 @@ label{
     margin: 0% 8% 1% 0;
     padding: 0.5%;
     box-sizing: border-box;
+}
+
+.explorer-inner .layer-single{
+    text-align: left;
 }
 
 .applied-layers .layer-class, .applied-layers .layer-single{
