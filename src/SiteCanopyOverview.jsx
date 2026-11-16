@@ -1,12 +1,12 @@
 import "./panelcontainer.css";
 import { PieChart } from '@mui/x-charts/PieChart';
 import React, { useEffect, useState } from 'react';
-const classes = ["Native", "Invasive", "Naturalized"]
+const classes = ["Native", "Invasive", "Naturalized", "Unknown"]
 const classColors = {
     'Native': '#32a852',
     'Invasive': '#d42632',
     'Naturalized': '#f2a413',
-    'Unclassified': "#abb8b6"
+    'Unknown': "#abb8b6"
 };
 let FEATURE_MAX = 4
 //classData maps each class to a percent, species data is a doubles array with each array containing a list for each class ordered Native-Invasive-Naturalized
@@ -132,6 +132,10 @@ export default function SiteCanopyOverview({siteSpecies, canopyField, title, sit
                 <div className="legend-item">
                     <div className="legend-color" style={{backgroundColor: classColors["Naturalized"]}}></div>
                     <div className="legend-label">Naturalized</div>
+                </div>
+                <div className="legend-item">
+                    <div className="legend-color" style={{backgroundColor: classColors["Unknown"]}}></div>
+                    <div className="legend-label">Unknown</div>
                 </div>
             </div>
             </>

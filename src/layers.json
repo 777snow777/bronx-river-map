@@ -32,7 +32,7 @@
                 "opacity": 1,
                 "visibility": "visible",
                 "level": "base",
-                "symbolName": "Boundary",
+                "symbolName": "Watershed Boundary",
                 "color": "#ff6c3b",
                 "metadata": {
                     "sourceURL": "",
@@ -60,7 +60,7 @@
   },
   {
     "category": "Wetlands",
-    "description": "Explain what a wetland is, what hydric soils are",
+    "description": "Wetlands are unique ecosystems characterized by saturated soils with water levels near or intercepting the soil surface either seasonally or year-round.",
     "layers": [
         { 
                 "id": "hydric-soils", 
@@ -77,7 +77,7 @@
                     "Limerick loam": "#a68b05", 
                     "Natchaug muck": "#9ba605"
                 },
-                "visibility": "visible",                
+                "visibility": "none",                
                 "level": "top",
                 "metadata": {
                     "sourceURL": "",
@@ -95,7 +95,7 @@
                 "classifications": {
                     "Pavement & buildings, tidal marsh substratum": "#a4bab5"
                 },
-                "visibility": "visible",                
+                "visibility": "none",                
                 "level": "base",
                 "metadata": {
                     "sourceURL": "",
@@ -117,7 +117,7 @@
                     "Scrub/Shrub": "#039908", 
                     "Water-Estuarine": "#06bfaa"
                 },
-                "visibility": "visible",                
+                "visibility": "none",                
                 "level": "top",
                 "metadata": {
                     "sourceURL": "https://data.cityofnewyork.us/dataset/NYC-Wetlands/p48c-iqtu/about_data",
@@ -138,7 +138,7 @@
                     "Freshwater Wetlands":"#026ed4", 
                     "Tidal Wetlands": "#3e5bfa"
                 },
-                "visibility": "visible",
+                "visibility": "none",
                 "opacity": 1,
                 "level": "top",
                 "metadata": {

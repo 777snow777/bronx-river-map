@@ -1,5 +1,6 @@
 import "./panelcontainer.css";
 import {React, useState, useRef, useEffect} from 'react';
+import RsaSiteFeature from "./RsaSiteFeature";
 import MapComponent from "./Map";
 import LeftPanel from "./LeftPanel";
 import RightPanel from "./RightPanel";
@@ -16,38 +17,6 @@ export default function PanelContainer({mapLayers}) {
     let orderedLayers = [...mapLayers].reverse()
     const selectedIdRef = useRef(null);
     const map = useRef(null);
-    const changeLeftState = (e, val) =>{
-        let selected =document.querySelector(".selected-left")
-        selected.className = ""
-        e.target.className = "selected-left"
-        if ((selectedIdRef.current !== null) && map.current) {
-            map.current.setFeatureState(
-                { source: selectedIdRef.layerId, id: selectedIdRef.current},
-                { selected: false }
-            );
-            selectedIdRef.current = null
-        }
-        if (val != "vegetation"){
-            setRightPanelState("closed")
-        }
-        setLeftPanelState(val)
-        leftStateRef.current = val
-    }
-
-    const changeRightState = (e, val) =>{
-        let selected =document.querySelector(".selected-right")
-        selected.className =""
-        e.target.className = "selected-right"
-        if ((selectedIdRef.current !== null) && map.current) {
-            map.current.setFeatureState(
-                { source: selectedIdRef.layerId, id: selectedIdRef.current},
-                { selected: false }
-            );
-            selectedIdRef.current = null
-        }        
-        let x = val
-        setRightPanelState(x)
-    }
 
     function showFeaturedSites(){
         leftStateRef.current = "data-layers"
@@ -60,12 +29,6 @@ export default function PanelContainer({mapLayers}) {
 
     useEffect(()=>{
         if (!plantProfiles){
-            // fetch("/google-api/macros/s/"+GOOGLE_SCRIPT_ID+"/exec", {
-            //     method: "GET",
-            //     headers: {
-            //       "Accept": "application/json"
-            //     }
-            // })
             fetch(`https://script.google.com/macros/s/AKfycbxRRHjZu-G1Djojo4qWnjgpMqupkDVl3MO3tP_s7aB3PvyirDawmeUCBnvsaQX7wZovHg/exec`)
             .then((response) => {
                   if (!response.ok) {
@@ -96,26 +59,11 @@ export default function PanelContainer({mapLayers}) {
     return(
         <div className="panel-container"> 
         {
-            (plantProfiles) && (mapReady) ? 
-            <>
-            <div className='tab-container'>
-                <div className='header-panel'>
-                    <div className="selected-left" onClick={(e)=>changeLeftState(e, "data-layers")}>Data layers</div>
-                    <div onClick={(e)=>changeLeftState(e, "vegetation")}>Ecosystem surveys</div>
-                    {/* <div onClick={(e)=>showFeaturedSites()}>Featured sites</div> */}
-                </div>
-                <div className="website-title">Bronx River Watershed Explorer</div>
-                <div className='header-panel'>
-                    <div  className="selected-right" onClick={(e)=>changeRightState(e, "plant-profiles")}>Plant profiles</div>
-                    <div onClick={(e)=>changeRightState("plant-profiles")}>Glossary</div>
-                </div>
-                {/* <button onClick={(e)=>changeLeftState("data-layers")}>Select data layers</button>
-                <button onClick={(e)=>changeLeftState("vegetation")}>Explore ecosystem surveys</button>
-                <button onClick={(e)=>showFeaturedSites()}>View restoration cores</button>
-                <button onClick={(e)=>changeRightState("plant-profiles")}>Read plant profiles</button> */}
-            </div>           
-            {(leftPanelState != "closed") && <LeftPanel leftPanelState={leftPanelState} setSiteData={setSiteData} setRightPanelState={setRightPanelState} map={mapInstance} plantProfiles={plantProfiles} mapLayers={mapLayers}/>}
-            {(rightPanelState != "closed") && <RightPanel rightPanelState={rightPanelState} setRightPanelState={setRightPanelState} siteData={siteData} map={mapInstance} plantProfiles={plantProfiles} selectedPlant={selectedPlant} setSelectedPlant={setSelectedPlant}/>}
+            (plantProfiles) &&( mapReady) ? 
+            <>         
+            {(leftPanelState != "closed") && <LeftPanel leftPanelState={leftPanelState} rightPanelState={rightPanelState} setLeftPanelState={setLeftPanelState} leftStateRef={leftStateRef} setSiteData={setSiteData} setRightPanelState={setRightPanelState} map={mapInstance} plantProfiles={plantProfiles} mapLayers={mapLayers}/>}
+            {(rightPanelState != "closed") && (rightPanelState != "rsa") && <RightPanel rightPanelState={rightPanelState} setRightPanelState={setRightPanelState} map={mapInstance} plantProfiles={plantProfiles} selectedPlant={selectedPlant} setSelectedPlant={setSelectedPlant} selectedIdRef={selectedIdRef}/>}
+            {(rightPanelState == "rsa") && <RsaSiteFeature siteData={siteData} map={map} selectedIdRef={selectedIdRef} setRightPanelState={setRightPanelState}/>}
             </>
             :
             <div className = "loading-screen">

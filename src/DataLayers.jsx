@@ -1,9 +1,10 @@
 import "./panelcontainer.css";
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ToggleCategory from "./Category";
-
-export default function DataLayers({map, mapLayers}) {  
+import { renderLayerColor } from "./ToggleLayer";
+export default function DataLayers({map, mapLayers, appliedLayers, setAppliedLayers, setRightPanelState}) {  
     useEffect(() => {
+        setRightPanelState("plant-profiles")
         if (map.getLayer("rsa-sites")) {
             map.setLayoutProperty('rsa-sites', 'visibility', 'none')
         }
@@ -13,17 +14,21 @@ export default function DataLayers({map, mapLayers}) {
         map.setPaintProperty('rsa-sites-outline', 'line-opacity', 0)
         map.setPaintProperty('featured-sites-outline', 'line-opacity', 0)
     }, []) 
-
     return (
         <div className="data-layers">
             <div className="all-layers left-container">
                 {mapLayers.map((category, index) => (
-                    <ToggleCategory key={index} category={category} map={map}/>
+                    <ToggleCategory key={index} category={category} map={map} appliedLayers={appliedLayers} setAppliedLayers={setAppliedLayers}/>
                 ))}
             </div>
-            {/* <div className="applied-layers">
+            <div className="applied-layers">
                 <h2 className="heading">Map Legend</h2>
-            </div> */}
+                {appliedLayers.map((layer, index)=>(
+                    renderLayerColor(layer)
+                ))
+
+                }
+            </div>
 
         </div>
         

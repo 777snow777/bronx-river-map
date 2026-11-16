@@ -2,10 +2,10 @@ import "./panelcontainer.css";
 import ToggleLayer from "./ToggleLayer";
 import React, { useState, useEffect } from 'react';
 
-export default function ToggleCategory({category, map}) {
-    const [layerVis, setLayerVis] = useState(null)
+export default function ToggleCategory({category, map, appliedLayers, setAppliedLayers}) {
+    // const [layerVis, setLayerVis] = useState(null)
     const [catVis, setCatVis] = useState(true)
-
+    const [viewCat, setViewCat] = useState(false)
     const toggleCategory = () => {
         if (!map) return;
         const nextState = !catVis;
@@ -15,37 +15,43 @@ export default function ToggleCategory({category, map}) {
                 'visibility',
              nextState ? 'visible' : 'none'
             )
-            setLayerVis(prevData => ({
-                ...prevData,
-                [layer.id]: nextState 
-              }));
+            if (nextState){
+                setAppliedLayers( 
+                    [
+                        ...appliedLayers, 
+                        layer
+                    ]);
+            }else{
+                setAppliedLayers(
+                    appliedLayers.filter(l =>
+                      l.id !== layer.id
+                    )
+                )
+            }
         })
         setCatVis(nextState)
     };
 
-    useEffect(()=>{
-        let initVis = {}
-        category.layers.forEach((layer)=>{
-            initVis[layer.id] = layer.visibility == "visible" ? true : false
-        })
-        setLayerVis(initVis)
-    },[])
+    function toggleCategoryView(){
+        const next = !viewCat
+        setViewCat(next)
+    }
 
     return (
         <>
         <div className="data-category">
             <div className="category-heading" key={category.category}>
-                <div className="custom-checkbox">
-                    <div className="control control--checkbox">
-                        <input type="checkbox" checked={catVis} onChange={() =>toggleCategory()}/>                        
-                        <div className="control__indicator"></div>
-                    </div>
-                </div>
+                <div className="open-category" onClick={toggleCategoryView}>{viewCat ? '▼' : '▶'}</div> 
                 <div className="category-name">{category.category}</div>
-                {/* <div className="category-vis" >▼</div> */}
+                <div className="custom-checkbox">
+                    <label className="control control--checkbox">
+                        <input type="checkbox" checked={catVis} onChange={toggleCategory}/>                        
+                        <div className="control__indicator"></div>
+                    </label>
+                </div>
             </div>
-            {layerVis && category.layers.map((layer)=>{
-                return <ToggleLayer key={layer.id} map={map} layer={layer} layerVis={layerVis[layer.id]} setLayerVis={setLayerVis}/>
+            {viewCat && category.layers.map((layer)=>{
+                return <ToggleLayer key={layer.id} map={map} layer={layer} appliedLayers={appliedLayers} setAppliedLayers={setAppliedLayers}/>
             })}
         </div>
         

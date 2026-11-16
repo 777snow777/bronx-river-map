@@ -2,7 +2,8 @@ import React, {useEffect, useContext} from 'react';
 import { CanopyContext } from "./CanopyContext";
 import './panelcontainer.css';
 import Papa from "papaparse";
-let rsaFn = "rsa_site_woody.csv" 
+let woodyFn = "rsa_site_woody.csv" 
+let groundFn = "rsa_site_ground.csv" 
 
 export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilityDict, visibilityRef, color}){  
     const { map, selectedCanopy, coverage, setCoverage } = useContext(CanopyContext);
@@ -14,12 +15,14 @@ export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilit
                 return "MidstoryCoverage"
             case "overstory1":
                 return "Overstory_1_Coverage"
+            case "groundcover":
+                return "range_max"
             default:
                 return "PlantCoverage"
         }
     }
 
-    const generatePlantCoverageLayer = (plantObs, selectedLayerID) =>{
+    const generateCoverageLayer = (plantObs, selectedLayerID) =>{
         const plantCoverage = {}; 
         let coverageProperty = getCoverageProperty()
         plantObs.forEach(row => {
@@ -62,8 +65,7 @@ export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilit
                     'fill-outline-color': '#000000',
             }
             });
-        }
-        
+        } 
     }
 
     const highlightRange = () =>{
@@ -95,7 +97,6 @@ export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilit
             visibilityRef.current = next
             return next
         });
-        console.log(visibilityRef.current)
         map.setLayoutProperty(
             plantData.layerId,
             'visibility',
@@ -107,13 +108,14 @@ export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilit
     useEffect(()=>{
         if (!map) return;
         if (!map.getLayer(plantData.layerId)){
+            let rsaFn = (selectedCanopy == "groundcover") ?  groundFn : woodyFn
             Papa.parse(rsaFn, {
                 download: true,
                 delimiter: ",",
                 header: true,        
                 complete: function (results) {
                     let plantObs = results.data.filter((row)=> row.scientific == plantData.Scientific)
-                    generatePlantCoverageLayer(plantObs, plantData.layerId)
+                    generateCoverageLayer(plantObs, plantData.layerId)
                 },
                     error: function (error) {
                     console.error("Error parsing CSV:", error);
@@ -133,17 +135,9 @@ export default function RSAPlantSpecies({plantData, visibilityDict, setVisibilit
     },[visibilityDict, selectedCanopy, coverage, color])
 
     return(
-        <div className = "plant-ctrl" onMouseEnter={highlightRange} onMouseLeave={removeHighlight}>
-            <div className="custom-checkbox">
-                <label className="control control--checkbox">
-                    <input type="checkbox" name={plantData.layerId} checked={visibilityDict[plantData.layerId]} onChange={togglePlantObs}/>
-                    <div className="control__indicator"></div>
-                </label>
-            </div>
-            <div className="plant-key">
-                    <div className="plant-name"><div className='common'>{plantData.Common}</div> <div className="scientific">{plantData.Scientific}</div></div>
-                    <div className="plant-color" style={{backgroundColor: color}}> </div>   
-                </div>
+        <div className={visibilityDict[plantData.layerId] ? "selected-plant-ctrl" : "plant-ctrl" } onClick={togglePlantObs} onMouseEnter={highlightRange} onMouseLeave={removeHighlight}>
+            <div className="plant-name"><div className='common'>{plantData.Common}</div></div>
+            <div className="plant-color" style={{backgroundColor: color}}> </div>   
         </div>
     )
 }

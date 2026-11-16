@@ -26,7 +26,6 @@ export default function PlantVis({map, layers}) {
     useEffect(()=>{
         return () => {
             if (currSelected.current != "none"){
-                console.log("remove")
                 map.setPaintProperty(currSelected.current, 'fill-opacity', 0);
             }
         };

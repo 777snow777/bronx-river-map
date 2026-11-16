@@ -69,7 +69,8 @@ export function renderLayer(layer, map){
     'layout': {
         'visibility': layer.visibility
     },
-    metadata: layer.metadata
+    metadata: layer.metadata,
+    "level": layer.level
   })
   if (layer.metadata != null && layer.metadata.name != null){
     map.on('mouseenter', layer.id, (e) => {
@@ -359,20 +360,21 @@ export default function MapComponent({map, mapReady, setMapReady, mapLayers, set
                     .setLngLat(coord)
                     .setHTML(description)
                     .addTo(map.current)
-              }else{
-                setRightPanelState("closed")
-                if (selectedIdRef.current !== null) {
-                  map.current.setFeatureState(
-                    { source: 'rsa-sites-src', id: selectedIdRef.current},
-                    { selected: false }
-                  );
-                  map.current.setFeatureState(
-                    { source: 'featured-sites-src', id: selectedIdRef.current},
-                    { selected: false }
-                  );
-                }
-                setSiteData(null)
               }
+              // else{
+              //   setRightPanelState("closed")
+              //   if (selectedIdRef.current !== null) {
+              //     map.current.setFeatureState(
+              //       { source: 'rsa-sites-src', id: selectedIdRef.current},
+              //       { selected: false }
+              //     );
+              //     map.current.setFeatureState(
+              //       { source: 'featured-sites-src', id: selectedIdRef.current},
+              //       { selected: false }
+              //     );
+              //   }
+              //   setSiteData(null)
+              // }
             }
           })
 

@@ -1,6 +1,29 @@
 import "./panelcontainer.css";
 import { renderLayer } from "./Map";
-export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
+import React, { useState } from 'react';
+
+export function renderLayerColor(layer){
+  if (layer.symbology == "multi"){
+    return (
+      Object.entries(layer.classifications).map(([key, value]) => (
+        <div className="layer-class" key={key}>
+          <div className={layer.type+"-color"} style={{backgroundColor: value}}></div>
+          <div>{key}</div>
+        </div>
+        ))
+    )
+  }else{
+    return (
+      <div className="layer-single" key={layer.id+"-color"}>
+        <div className={layer.symbology == "gradient" ? "gradient-color" : layer.type+"-color"} style={{background: layer.symbology == "gradient" ? `linear-gradient(to bottom, ${layer.colorRange[1]}, ${layer.colorRange[0]})` : layer.color}}></div>
+        <div>{layer.symbolName}</div>
+      </div>
+    )
+  } 
+}
+
+export default function ToggleLayer({ map, layer, appliedLayers, setAppliedLayers}) {
+  const [layerVis, setLayerVis] = useState(appliedLayers.includes(layer))
   const toggleLayer = () => {
         if (!map) return;
         if (!map.getLayer(layer.id)) {
@@ -12,38 +35,22 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
           'visibility',
           nextState ? 'visible' : 'none'
         );
-        setLayerVis(prevData => ({
-          ...prevData,
-          [layer.id]: nextState 
-        }));
+        if (nextState){
+          setAppliedLayers( 
+              [
+                  ...appliedLayers, 
+                  layer
+              ]);
+        }else{
+            setAppliedLayers(
+                appliedLayers.filter(l =>
+                  l.id !== layer.id
+                )
+            )
+        }
+        setLayerVis(nextState)
     };
-
-    function updateSelected(){
-      let next = {}
-      // if (layer.symbology == "multi")
-        // setSelected({layerId: layer.id, value: })
-    }
-
-    function renderLayerColor(){
-      if (layer.symbology == "multi"){
-        return (
-          Object.entries(layer.classifications).map(([key, value]) => (
-            <div className="layer-class" key={key} onClick={updateSelected()}>
-              <div className={layer.type+"-color"} style={{backgroundColor: value}}></div>
-              <div>{key}</div>
-            </div>
-            ))
-        )
-      }else{
-        return (
-          <div className="layer-single">
-            <div className={layer.symbology == "gradient" ? "gradient-color" : layer.type+"-color"} style={{background: layer.symbology == "gradient" ? `linear-gradient(to bottom, ${layer.colorRange[1]}, ${layer.colorRange[0]})` : layer.color}}></div>
-            <div>{layer.symbolName}</div>
-          </div>
-        )
-      } 
-    }
-
+    
     return (
         <div className="data-layer">
             <div className="layer-heading">
@@ -55,8 +62,8 @@ export default function ToggleLayer({ map, layer, layerVis, setLayerVis}) {
                 </div>
                 <div className="layer-name">{layer.label}</div>
             </div>
-            <div className="data-vis" style={{border: layerVis ? "0.5px solid #d2e0ad" : "none"}}>
-               {layerVis && renderLayerColor()}
+            <div className="data-vis" style={{border: layerVis ? "0.75px solid rgb(108 149 0)" : "none"}}>
+               {layerVis && renderLayerColor(layer)}
             </div>
         </div>
       );

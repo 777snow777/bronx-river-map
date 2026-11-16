@@ -17,7 +17,7 @@ const canopyColors = {
 }
 
 
-export default function RsaSiteFeature({siteData, plantProfiles}) {
+export default function RsaSiteFeature({siteData, selectedIdRef, map, setRightPanelState}) {
     const [canopyProfile, setCanopyProfile] = useState([])
     const [woodySpecies, setWoodySpecies] = useState(null)
     const [groundSpecies, setGroundSpecies] = useState(null)
@@ -39,7 +39,6 @@ export default function RsaSiteFeature({siteData, plantProfiles}) {
             header: true,        
             complete: function (results) {
                 let filtered = results.data.filter((row)=>row.SurveyID4 === siteData.SurveyID4)
-                console.log(filtered.data)
                 setWoodySpecies(filtered)
             }
         })
@@ -54,6 +53,27 @@ export default function RsaSiteFeature({siteData, plantProfiles}) {
         })
     }
 
+    function closeSite(){
+        map.current.setFeatureState(
+            { source: selectedIdRef.layerId, id: selectedIdRef.current},
+            { selected: false }
+        );
+        selectedIdRef.current = null
+        setRightPanelState("plant-profiles")
+    }
+
+    useEffect(() => {
+        return () => {
+            if ((selectedIdRef.current !== null) && map.current) {
+                map.current.setFeatureState(
+                    { source: selectedIdRef.layerId, id: selectedIdRef.current},
+                    { selected: false }
+                );
+                selectedIdRef.current = null
+            }
+        }
+    }, [])
+
     useEffect(()=>{
         generateCanopyChart(setCanopyProfile, siteData.CanopyProfile)
         getSiteSpecies()
@@ -63,16 +83,25 @@ export default function RsaSiteFeature({siteData, plantProfiles}) {
         <>
         {woodySpecies && groundSpecies &&
             <div className="rsa-site">
-                    <div className='rsa-site-heading'>{siteData.SiteName != "N/A" ?  (siteData.SiteName) : ""}</div>
+                    <div className='rsa-site-heading'><div className="close-site" onClick={closeSite}>&#10005;</div><div className="site-name">{siteData.SiteName != "N/A" ?  (siteData.SiteName) : ""}</div></div>
                     <div className="rsa-content">
-                        <div className="data-description">This site was assessed by the Natural Areas Conservancy in 2018-2021 via Rapid Site Assessments. The charts below highlight the species breakdown identified across each canopy level at this site.</div>
+                        {/* <div className="data-description">This site was assessed by the Natural Areas Conservancy in 2018-2021 via Rapid Site Assessments. The charts below highlight the species breakdown identified across each canopy level at this site.</div> */}
                         <div className="site-overview">
-                            <div className="overview-entry"><span>Invasive herbaceous cover (%): </span><span>{siteData.Invasive_Herb_Perc}</span></div>
-                            <div className="overview-entry"><span>Native herbaceous cover (%): </span><span>{siteData.Native_Herb_Perc}</span></div>
-                            <div className="overview-multi"><span>Native woody stems per hectare:</span>
-                                <div><span>Seedlings: </span><span>{Math.round(siteData.Native_Tree_Seedlings_Ha)}</span></div>
-                                <div><span>Midstory: </span><span>{Math.round(siteData.Native_Midstory_Ha)}</span></div>
-                                <div><span>Overstory: </span><span>{Math.round(siteData.Survey_1_Native_Overstory_m2_BA_Ha)}</span></div>
+                            <div className="overview-entry"><span className="overview-label">Invasive herbaceous cover: </span><span>{siteData.Invasive_Herb_Perc}%</span></div>
+                            <div className="overview-entry"><span className="overview-label">Native herbaceous cover: </span><span>{siteData.Native_Herb_Perc}%</span></div>
+                            <div className="overview-multi"><span className="overview-label">Woody stems per hectare:</span>
+                                <div className="overview-entry2">
+                                    <div className="overview-entry3"><span>Native Seedlings:</span><span> {Math.round(siteData.Native_Tree_Seedlings_Ha)}</span></div>
+                                    <div className="overview-entry3"><span>Native Midstory:</span> <span>{Math.round(siteData.Native_Midstory_Ha)}</span></div>
+                                    <div className="overview-entry3"><span>Invasive Midstory:</span> <span>{Math.round(siteData.Invasive_Midstory_Ha)}</span></div>
+                                </div>
+                                
+                            </div>
+                            <div className="overview-multi"><span className="overview-label">Overstory m<sup>2</sup> BA / Ha :</span>
+                            <div className="overview-entry2">
+                                    <div className="overview-entry3"><span>Midstory:</span> <span>{siteData.Survey_1_Native_Overstory_m2_BA_Ha}</span></div>
+                                    <div className="overview-entry3"><span>Overstory:</span><span>{siteData.Invasive_Overstory_m2_BA_Ha}</span></div>
+                                </div>
                             </div>
 
                         </div>

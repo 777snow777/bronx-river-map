@@ -6,9 +6,9 @@ const classColors = {
     'Naturalized': '#fcaf08',
 };
 export default function PlantProfiles({map, plantProfiles, setSelectedPlant, setPrevState}){
-    let commonNative = Object.values(plantProfiles).filter((plant) => plant.Classification == "Native")
-    let commonInvasive = Object.values(plantProfiles).filter((plant) => plant.Classification == "Invasive")
-    let commonNaturalized = Object.values(plantProfiles).filter((plant) => plant.Classification == "Naturalized")
+    let commonNative = Object.values(plantProfiles).filter((plant) => (plant.Classification == "Native") && (plant.Done == "Y"))
+    let commonInvasive = Object.values(plantProfiles).filter((plant) => (plant.Classification == "Invasive") && (plant.Done == "Y"))
+    let commonNaturalized = Object.values(plantProfiles).filter((plant) => (plant.Classification == "Naturalized") && (plant.Done == "Y"))
 
     function openPlantProfile(plant){
         setPrevState("plant-profiles")
@@ -64,7 +64,7 @@ export default function PlantProfiles({map, plantProfiles, setSelectedPlant, set
     }
 
     return(
-        <div className="right-panel">
+        <>
             <div className="data-description">
                 {/* <div>The following species are common throughout the watershed, based on <a href="https://www.inaturalist.org/observations">iNaturalist</a> data collected throughout the watershed.</div> */}
                 <div>Hover over a species to see locations where it has been observed throughout the watershed.</div>
@@ -96,7 +96,7 @@ export default function PlantProfiles({map, plantProfiles, setSelectedPlant, set
                     </li>                
                 ))}
             </ul>
-        </div>
+        </>
     )
 }
 
