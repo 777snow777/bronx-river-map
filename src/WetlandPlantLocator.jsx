@@ -29,12 +29,9 @@ export default function WetlandPlantFinder({map}){
             complete: function (results) {
                 let plantObs = results.data.filter((row)=> row.scientific == plant.scientific)
                 let targets = []
-                console.log(plant)
-                console.log(plantObs)
                 plantObs.forEach(target =>{
                     targets.push(target['SurveyID4'].slice(0,12).trim())
                 })
-                console.log(targets)
                 map.setFilter('wetland-finder', [
                     'in',
                     ['get', 'SITE_ID'],

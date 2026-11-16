@@ -188,7 +188,6 @@ export default function MapComponent({map, mapReady, setMapReady, mapLayers, set
               // siteData.Overstory2 = siteData.Overstory_2_Summary.split(",")
               // siteData.Overstory3 = siteData.Overstory_3_Summary.split(",")
               // siteData.Overstory4 = siteData.Overstory_4_Summary.split(",")
-              console.log(selectSite)
               siteData.SiteName = selectedSite.SiteName
               siteData.CanopyProfile = siteData.CanopyProfile.split(",")
               setSiteData(siteData)
